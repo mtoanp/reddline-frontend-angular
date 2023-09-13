@@ -1,0 +1,28 @@
+<!-- {{theme.id}} {{theme.nom}} -->
+
+<div class="p-3">
+    <div class="card">
+        <div class="card-body">
+            <!-- Search -->
+            <div class="card-body d-flex">
+                <!-- {{keyword}} -->
+
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th> <th>Price</th> <th>Update</th> <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let theme of themes">
+                        <td>{{theme.id}}</td>
+                        <td>{{theme.nom}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>           

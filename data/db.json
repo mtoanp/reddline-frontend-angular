@@ -1,0 +1,73 @@
+{
+    "id": 1,
+    "nom": "catalogue",
+    "idParent": 0,
+    "subThemes": [
+        {
+            "id": 2,
+            "nom": "informatique",
+            "idParent": 1,
+            "subThemes": [
+                {
+                    "id": 5,
+                    "nom": "programmation",
+                    "idParent": 2,
+                    "subThemes": [
+                        {
+                            "id": 8,
+                            "nom": "Langage compilé",
+                            "idParent": 5,
+                            "subThemes": [],
+                            "formations": []
+                        },
+                        {
+                            "id": 9,
+                            "nom": "langage interprété",
+                            "idParent": 5,
+                            "subThemes": [],
+                            "formations": []
+                        },
+                        {
+                            "id": 10,
+                            "nom": "Langage intermédiaire",
+                            "idParent": 5,
+                            "subThemes": [],
+                            "formations": []
+                        }
+                    ],
+                    "formations": []
+                },
+                {
+                    "id": 6,
+                    "nom": "web",
+                    "idParent": 2,
+                    "subThemes": [],
+                    "formations": []
+                },
+                {
+                    "id": 7,
+                    "nom": "réseau",
+                    "idParent": 2,
+                    "subThemes": [],
+                    "formations": []
+                }
+            ],
+            "formations": []
+        },
+        {
+            "id": 3,
+            "nom": "science univers",
+            "idParent": 1,
+            "subThemes": [],
+            "formations": []
+        },
+        {
+            "id": 4,
+            "nom": "programmation",
+            "idParent": 1,
+            "subThemes": [],
+            "formations": []
+        }
+    ],
+    "formations": []
+}
