@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ThemesComponent } from './theme/themes/themes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './static/home/home.component';
+import { FormationsComponent } from './formation/formations/formations.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './static/home/home.component';
     FooterComponent,
     NavbarComponent,
     ThemesComponent,
-    HomeComponent
+    HomeComponent,
+    FormationsComponent
   ],
   imports: [
     BrowserModule,
