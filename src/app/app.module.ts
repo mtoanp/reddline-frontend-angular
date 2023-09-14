@@ -14,6 +14,8 @@ import { HomeComponent } from './static/home/home.component';
 import { FormationsComponent } from './formation/formations/formations.component';
 import { CatalogueComponent } from './theme/catalogue/catalogue.component';
 import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
+import { NewEtudiantComponent } from './new-etudiant/new-etudiant.component';
+import { EditEtudiantComponent } from './edit-etudiant/edit-etudiant.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
     HomeComponent,
     FormationsComponent,
     CatalogueComponent,
-    EtudiantsComponent
+    EtudiantsComponent,
+    NewEtudiantComponent,
+    EditEtudiantComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+<div class="p-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- {{productForm.value | json}} -->
+                    <form [formGroup]="form" (ngSubmit)="saveProduct()" >
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nom</label>
+                            <input type="text" class="form-control" formControlName="nom">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Prenom</label>
+                            <input type="text" class="form-control" formControlName="prenom">
+                        </div>
+                        <button [disabled]="form.invalid" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

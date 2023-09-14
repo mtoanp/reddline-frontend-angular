@@ -21,7 +21,6 @@ export class EtudiantsComponent implements OnInit {
     this.etudiantService.getAll().subscribe({
       next: data => {
         console.log(data);
-        // console.log(JSON.stringify(data));
         this.etudiants = data;
       },
       error: err => {
@@ -30,14 +29,17 @@ export class EtudiantsComponent implements OnInit {
     })
   }
 
+  handleNewEtudiant() {
+    this.router.navigateByUrl("api/newEtudiant");
+  }
+
   handleEditEtudiant(product:Etudiant) {
-    this.router.navigateByUrl(`edit/${product.id}`);
+    this.router.navigateByUrl(`api/editEtudiant/${product.id}`);
   }
 
   handleDeleteEtudiant(product:Etudiant) {
     this.etudiantService.delete(product).subscribe({
       next: value => {
-        // this.getEtudiants();
         this.etudiants = this.etudiants.filter(p => p.id != product.id);
       }
     })
