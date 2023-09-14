@@ -1,4 +1,4 @@
-<nav class="p-3">
+<nav class="p-3 d-flex justify-content-between">
     <ul class="nav nav-pills">
         <li *ngFor="let action of actions">
             <button 
@@ -11,4 +11,10 @@
             </button>
         </li>
     </ul>
+
+    <div class="right">
+        <button class="btn btn-outline-danger ms-1">
+            Connextion
+        </button>
+    </div>
 </nav>

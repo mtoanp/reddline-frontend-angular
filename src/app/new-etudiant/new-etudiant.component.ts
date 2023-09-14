@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EtudiantService } from '../service/etudiant.service';
 
 @Component({
@@ -14,12 +14,21 @@ export class NewEtudiantComponent implements OnInit{
 
   ngOnInit(): void {
       this.form = this.fb.group({
-
+        nom: this.fb.control('', [Validators.required]),
+        prenom: this.fb.control('', [Validators.required])  // value init
       })
   }
 
-  saveProduct() {
-    alert("saved");
+  saveEtudiant() {
+    let product = this.form.value;
+    this.service.save(product).subscribe({
+      next: data => {
+        // alert(JSON.stringify(data));
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
   }
   
 }

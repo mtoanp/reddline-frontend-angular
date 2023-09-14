@@ -16,6 +16,7 @@ import { CatalogueComponent } from './theme/catalogue/catalogue.component';
 import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
 import { NewEtudiantComponent } from './new-etudiant/new-etudiant.component';
 import { EditEtudiantComponent } from './edit-etudiant/edit-etudiant.component';
+import { SallesComponent } from './salle/salles/salles.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditEtudiantComponent } from './edit-etudiant/edit-etudiant.component';
     CatalogueComponent,
     EtudiantsComponent,
     NewEtudiantComponent,
-    EditEtudiantComponent
+    EditEtudiantComponent,
+    SallesComponent
   ],
   imports: [
     BrowserModule,

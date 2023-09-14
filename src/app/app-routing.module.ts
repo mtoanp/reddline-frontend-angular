@@ -6,6 +6,7 @@ import { FormationsComponent } from './formation/formations/formations.component
 import { CatalogueComponent } from './theme/catalogue/catalogue.component';
 import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
 import { NewEtudiantComponent } from './new-etudiant/new-etudiant.component';
+import { SallesComponent } from './salle/salles/salles.component';
 
 const routes: Routes = [
   {path: "api/home", component: HomeComponent},
@@ -15,7 +16,9 @@ const routes: Routes = [
 
   {path: "api/etudiants", component: EtudiantsComponent},
   {path: "api/newEtudiant", component: NewEtudiantComponent},
-  {path: "api/editEtudiant", component: NewEtudiantComponent}
+  {path: "api/editEtudiant", component: NewEtudiantComponent},
+
+  {path: "api/salles", component: SallesComponent}
 ];
 
 @NgModule({
