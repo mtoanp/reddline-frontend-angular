@@ -10,7 +10,8 @@ export class NavbarComponent {
     {title: "Home", route: "/api/home", icon: "house"},
     {title: "Catalogue", route: "/api/catalogue", icon: "search"},
     {title: "Themes", route: "/api/themes", icon: "search"},
-    {title: "Formations", route: "/api/formations", icon: "safe"}
+    {title: "Formations", route: "/api/formations", icon: "safe"},
+    {title: "Etudiants", route: "/api/etudiants", icon: "people"}
   ]
   currentAction: any;
 
