@@ -7,9 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   actions:Array<any> = [
-    {title: "Home", "route": "/api/home", icon: "house"},
-    {title: "Catalogue", "route": "/api/themes", icon: "search"},
-    {title: "Formations", "route": "/api/formations", icon: "safe"}
+    {title: "Home", route: "/api/home", icon: "house"},
+    {title: "Catalogue", route: "/api/catalogue", icon: "search"},
+    {title: "Themes", route: "/api/themes", icon: "search"},
+    {title: "Formations", route: "/api/formations", icon: "safe"}
   ]
   currentAction: any;
 

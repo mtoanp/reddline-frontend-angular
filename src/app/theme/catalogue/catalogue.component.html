@@ -1,0 +1,20 @@
+<div class="p-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-body">
+                {{catalogue}} <br>
+                {{catalogue.id}} {{catalogue.nom}}
+           
+                sub themes:<br>
+                <div *ngFor="let theme of catalogue.subThemes" class="">
+                    {{theme.id}}
+                </div>
+          
+                formations:<br>
+                <div *ngFor="let formation of catalogue.formations" class="">
+                    {{formation.id}}
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>   

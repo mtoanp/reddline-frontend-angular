@@ -12,6 +12,7 @@ import { ThemesComponent } from './theme/themes/themes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './static/home/home.component';
 import { FormationsComponent } from './formation/formations/formations.component';
+import { CatalogueComponent } from './theme/catalogue/catalogue.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormationsComponent } from './formation/formations/formations.component
     NavbarComponent,
     ThemesComponent,
     HomeComponent,
-    FormationsComponent
+    FormationsComponent,
+    CatalogueComponent
   ],
   imports: [
     BrowserModule,

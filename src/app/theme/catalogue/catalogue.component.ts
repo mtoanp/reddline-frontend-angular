@@ -1,27 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Theme } from 'src/app/model/theme.model';
 import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({
-  selector: 'app-themes',
-  templateUrl: './themes.component.html',
-  styleUrls: ['./themes.component.scss']
+  selector: 'app-catalogue',
+  templateUrl: './catalogue.component.html',
+  styleUrls: ['./catalogue.component.scss']
 })
-export class ThemesComponent implements OnInit {
-  themes:Theme[] = [];
+export class CatalogueComponent {
+  catalogue!:Theme;
 
   constructor(private themeService:ThemeService) {}
   
   ngOnInit(): void {
-      this.getThemes();
+      this.getCatalogue();
   }
 
-  getThemes() {
-    this.themeService.getThemes().subscribe({
+  getCatalogue() {
+    this.themeService.getCatalogue().subscribe({
       next: data => {
         console.log(data);
         // console.log(JSON.stringify(data));
-        this.themes = data;
+        this.catalogue = data;
       },
       error: err => {
         console.log(err);
