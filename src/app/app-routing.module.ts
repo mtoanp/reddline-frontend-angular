@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ThemesComponent } from './theme/themes/themes.component';
-import { HomeComponent } from './static/home/home.component';
 import { FormationsComponent } from './formation/formations/formations.component';
 import { CatalogueComponent } from './theme/catalogue/catalogue.component';
 import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
 import { NewEtudiantComponent } from './new-etudiant/new-etudiant.component';
 import { SallesComponent } from './salle/salles/salles.component';
+import { HomeComponent } from './public/home/home.component';
 
 const routes: Routes = [
   {path: "api/home", component: HomeComponent},
