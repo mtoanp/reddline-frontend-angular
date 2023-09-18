@@ -25,22 +25,23 @@
         </li>
     </ul>
 
-    <ul *ngIf="authService.isAuthenticated()" class="nav nav-pills">
-        <li>
-          <a class="nav-link text-danger">
-           Auth: {{authService.authenticatedUser!.username}}
-          </a>  
+    <!-- <ul *ngIf="authService.isAuthenticated()" class="nav nav-pills"> -->
+    <ul class="nav nav-pills">
+        <li *ngIf="authService.isAuthenticated()">
+          <!-- {{authService.authenticatedUser!.username}} -->
+          {{appState.authState.username}}
+          <button class="btn btn-success" (click)="logout()">Logout</button>
         </li>
-        <li >
-          <a class="nav-link" (click)="handleLogout()">
-            <i class="bi bi-box-arrow-right"></i>
-          </a>
+        <li *ngIf="!authService.isAuthenticated()">
+          <button class="btn btn-success" (click)="login()">Login</button>
         </li>
-    </ul>
 
-    <ul *ngIf="!authService.isAuthenticated()" class="nav nav-pills">
-        <button routerLink="/api/login" class="btn btn-outline-danger ms-1">
-            Connextion
-        </button>
+        <!-- <li *ngIf="appState.authState.isAuthenticated">
+          {{appState.authState.username}}
+          <button class="btn btn-success" (click)="logout()">Logout</button>
+        </li>
+        <li *ngIf="!appState.authState.isAuthenticated">
+          <button class="btn btn-success" (click)="login()">Login</button>
+        </li> -->
     </ul>
 </nav>

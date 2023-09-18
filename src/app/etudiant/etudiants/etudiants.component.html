@@ -29,7 +29,8 @@
                         </td>
                         <td>{{etudiant.nom}}</td>
                         <td>{{etudiant.prenom}}</td>
-                        <td>
+                        <!-- <td *ngIf="appState.authState.roles.includes('ADMIN')"> -->
+                        <td *ngIf="isAdmin()">
                             <button
                                 (click)="handleEditEtudiant(etudiant)"
                                 class="btn btn-outline-success"
@@ -38,7 +39,8 @@
                             </button>
                         </td>
 
-                        <td>
+                        <!-- <td *ngIf="appState.authState.roles.includes('ADMIN')"> -->
+                        <td *ngIf="isAdmin()">
                             <button
                                 (click)="handleDeleteEtudiant(etudiant)"
                                 class="btn btn-outline-danger"

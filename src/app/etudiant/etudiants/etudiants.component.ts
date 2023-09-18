@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Etudiant } from 'src/app/model/etudiant.model';
+import { AppStateService } from 'src/app/service/app-state.service';
 import { EtudiantService } from 'src/app/service/etudiant.service';
 
 @Component({
@@ -10,11 +11,23 @@ import { EtudiantService } from 'src/app/service/etudiant.service';
 })
 export class EtudiantsComponent implements OnInit {
   etudiants:Etudiant[] = [];
+  // isAdmin:boolean = false;
   
-  constructor(private etudiantService:EtudiantService, private router:Router) {}
+  constructor(private etudiantService:EtudiantService, 
+              public appState:AppStateService,
+              private router:Router) {}
 
   ngOnInit(): void {
       this.getAll();
+      // this.isAdmin = this.appState.authState.roles.includes('ADMIN');
+  }
+
+  isAdmin():boolean {
+    if(this.appState.authState.roles == undefined) {
+      return false;
+    } else {
+      return this.appState.authState.roles.includes('ADMIN');
+    }
   }
 
   getAll() {

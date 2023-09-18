@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
 import { Observable, throwError, of } from 'rxjs';
 import { AppUser } from '../model/user.model';
+import { AppStateService } from './app-state.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthenticationService {
   users : AppUser[]=[];
   authenticatedUser:AppUser | undefined;
   
-  constructor() { 
+  constructor(private appState : AppStateService) { 
     // this.users.push();
     // for (let i=0 ; i<10 ; i++){
       this.users.push({id:UUID.UUID(), username:"admin",password:"123",roles:["USER","ADMIN"]});
@@ -22,9 +23,21 @@ export class AuthenticationService {
 
   public login(username:string, password:string):Observable<AppUser> {
     let appUser =  this.users.find(u => {return u.username == username });
-    if(!appUser) return throwError( () => new Error("User not found"));
-    if (appUser.password != password )return throwError( () => new Error("Bad credentials "));
-    return of (appUser);
+    if(!appUser) {
+      return throwError( () => new Error("User not found"));
+    } else if(appUser.password != password ) {
+      return throwError( () => new Error("Bad credentials "));
+    } else {
+      this.appState.setAuthState({
+        isAuthenticated : true,
+        username : username,
+        roles : appUser.roles,
+        token : "JWT_TOKEN" 
+      });
+
+      return of (appUser);
+    }
+
   }
 
   public authenticateUser(appUser : AppUser): Observable<boolean> { 
@@ -34,15 +47,15 @@ export class AuthenticationService {
   }
 
   public hasRole(role:string):boolean {
-    return this.authenticatedUser!.roles.includes("ADMIN"); 
+    return this.authenticatedUser!.roles.includes(role); 
   }
 
   isAuthenticated() {
-    this.authenticatedUser = this.isStored();
-    return this.authenticatedUser != undefined; 
+    this.authenticatedUser = this.getLocalUser();
+    return (this.authenticatedUser != undefined); 
   }
 
-  isStored():any {
+  getLocalUser():any {
     return localStorage.getItem('authUser')  || undefined;
     // return JSON.parse(localStorage.getItem('authUser')  || '{}');
   }

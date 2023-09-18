@@ -28,13 +28,13 @@ export class LoginComponent implements OnInit{
     let password = this.userFormGroup.value.password as string;
 
     // alert ("username = "+username +", & password = "+password);
-    this.authService.login( username , password) .subscribe({
+    this.authService.login(username, password).subscribe({
       next: (appUser: any) => { 
         this.authService.authenticateUser(appUser).subscribe({
-          next: (data: any) => {   this.router.navigateByUrl("/admin");}  
+          next: (data: any) => {this.router.navigateByUrl("/admin");}  
         })
       }, 
-      error: (err: any) => {this.errorMessage=err; } 
+      error: (err: any) => {this.errorMessage = err; } 
     });
   }
 }

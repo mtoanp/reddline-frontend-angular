@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../service/authentication.service';
+import { AppStateService } from 'src/app/service/app-state.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,9 @@ import { AuthenticationService } from '../../service/authentication.service';
 })
 export class NavbarComponent implements OnInit {
   
-  constructor (public authService: AuthenticationService, private router:Router) {}
+  constructor ( public authService: AuthenticationService, 
+                public appState:AppStateService,
+                private router:Router) {}
 
   publicActions:Array<any> = [
     {title: "Home", route: "/api/home", icon: "house"},
@@ -25,23 +28,23 @@ export class NavbarComponent implements OnInit {
   
   currentAction: any;
 
+  ngOnInit(): void {
+    console.log("isAuthenticated" + this.authService.isAuthenticated());
+  }
+  
   setCurrentAction(action: any) {
     this.currentAction = action;
   }
 
-  ngOnInit(): void {
-    console.log(this.authService.isStored());
-    console.log("isAuthenticated" + this.authService.isAuthenticated());
-
-    // if(this.authService.isAuthenticated()) {
-    //   console.warn("logedin");
-    // }
+  login() {
+    this.router.navigateByUrl("/api/login");
   }
-  
-  handleLogout() {
-    alert('logout')
+
+  logout() {
+    this.appState.authState = {};
     this.authService.logout().subscribe({
-      next: data => {this.router.navigateByUrl("/login"); }
+      next: data => {this.router.navigateByUrl("/api/login"); }
     });
   }
+
 }
