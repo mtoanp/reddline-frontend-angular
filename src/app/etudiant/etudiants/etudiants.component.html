@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="d-flex justify-content-between">
                 <h2>Etudiants</h2>
-                <button class="btn btn-success"
+                <button *ngIf="authService.isAdmin()" class="btn btn-success"
                     (click)="handleNewEtudiant()"
                 >Add New</button>
             </div>
@@ -29,8 +29,7 @@
                         </td>
                         <td>{{etudiant.nom}}</td>
                         <td>{{etudiant.prenom}}</td>
-                        <!-- <td *ngIf="appState.authState.roles.includes('ADMIN')"> -->
-                        <td *ngIf="isAdmin()">
+                        <td *ngIf="authService.isAdmin()">
                             <button
                                 (click)="handleEditEtudiant(etudiant)"
                                 class="btn btn-outline-success"
@@ -38,9 +37,7 @@
                                 <i class="bi bi-pen"></i>
                             </button>
                         </td>
-
-                        <!-- <td *ngIf="appState.authState.roles.includes('ADMIN')"> -->
-                        <td *ngIf="isAdmin()">
+                        <td *ngIf="authService.isAdmin()">
                             <button
                                 (click)="handleDeleteEtudiant(etudiant)"
                                 class="btn btn-outline-danger"

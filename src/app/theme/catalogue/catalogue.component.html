@@ -1,18 +1,23 @@
 <div class="p-3">
     <div class="card">
         <div class="card-body">
-            <div class="card-body">
+            <div *ngIf="catalogue" class="card-body">
                 {{catalogue}} <br>
                 {{catalogue.id}} {{catalogue.nom}}
-           
+                <hr>
+
                 sub themes:<br>
                 <div *ngFor="let theme of catalogue.subThemes" class="">
-                    {{theme.id}}
+                    {{theme.id}} {{theme.nom}} -- sub: 
+                    <div *ngFor="let theme1 of theme.subThemes" class="">
+                        {{theme1.id}} {{theme1.nom}}
+                    </div>
                 </div>
           
+                <hr>
                 formations:<br>
                 <div *ngFor="let formation of catalogue.formations" class="">
-                    {{formation.id}}
+                    {{formation.id}} {{formation.nom}}
                 </div>
             </div>
         </div>

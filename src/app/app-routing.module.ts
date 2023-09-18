@@ -10,6 +10,7 @@ import { HomeComponent } from './public/home/home.component';
 import { LoginComponent } from './public/login/login.component';
 import { ShowEtudiantComponent } from './etudiant/show-etudiant/show-etudiant.component';
 import { EditEtudiantComponent } from './etudiant/edit-etudiant/edit-etudiant.component';
+import { AdminTemplateComponent } from './admin/admin-template/admin-template.component';
 
 const routes: Routes = [
   {path: "api", children: [
@@ -18,6 +19,7 @@ const routes: Routes = [
     {path: "catalogue", component: CatalogueComponent},
     {path: "formations", component: FormationsComponent},
   
+    // {path: "admin", component: AdminTemplateComponent, children: [
     {path: "admin", children: [
       {path: "themes", component: ThemesComponent},
       {path: "etudiants", component: EtudiantsComponent},

@@ -65,4 +65,12 @@ export class AuthenticationService {
     localStorage.removeItem("authUser" );
     return of(true);
   }
+
+  isAdmin():boolean {
+    if(this.appState.authState.roles == undefined) {
+      return false;
+    } else {
+      return this.appState.authState.roles.includes('ADMIN');
+    }
+  }
 }
