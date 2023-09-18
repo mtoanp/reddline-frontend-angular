@@ -38,9 +38,16 @@ export class EtudiantsComponent implements OnInit {
   }
 
   handleDeleteEtudiant(product:Etudiant) {
+    let conf = confirm("Are you sure ? ");
+    if (conf==false) return;
+
     this.etudiantService.delete(product).subscribe({
       next: value => {
+        console.warn("deleted");
         this.etudiants = this.etudiants.filter(p => p.id != product.id);
+      }, 
+      error: err => {
+        console.warn(err);
       }
     })
   }

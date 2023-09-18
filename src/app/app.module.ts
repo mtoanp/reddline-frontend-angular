@@ -17,6 +17,7 @@ import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
 import { NewEtudiantComponent } from './new-etudiant/new-etudiant.component';
 import { EditEtudiantComponent } from './edit-etudiant/edit-etudiant.component';
 import { SallesComponent } from './salle/salles/salles.component';
+import { AdminTemplateComponent } from './admin/admin-template/admin-template.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SallesComponent } from './salle/salles/salles.component';
     EtudiantsComponent,
     NewEtudiantComponent,
     EditEtudiantComponent,
-    SallesComponent
+    SallesComponent,
+    AdminTemplateComponent
   ],
   imports: [
     BrowserModule,

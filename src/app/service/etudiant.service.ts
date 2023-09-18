@@ -23,7 +23,6 @@ export class EtudiantService {
   }
 
   delete(obj:Etudiant) {
-    alert('azdada');
     return this.http.delete<any>(`${this.host}/${this.base}/${obj.id}`);
   }
   
