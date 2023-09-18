@@ -1,11 +1,24 @@
 <nav class="p-3 d-flex justify-content-between">
     <ul class="nav nav-pills">
-        <li *ngFor="let action of actions">
+        <li *ngFor="let action of publicActions">
             <button 
                     (click) = "setCurrentAction(action)"
                     routerLink="{{action.route}}"
                     [class]="action == currentAction ? 'btn btn-success ms-1' : 'btn btn-outline-success ms-1' "
                 >
+                {{action.title}}     
+                <i class="bi bi-{{action.icon}} text-success"></i>
+            </button>
+        </li>
+    </ul>
+
+    <ul class="nav nav-pills" *ngIf="authService.isAuthenticated()">
+        <li *ngFor="let action of adminActions">
+            <button 
+                    (click) = "setCurrentAction(action)"
+                    routerLink="{{action.route}}"
+                    [class]="action == currentAction ? 'btn btn-info ms-1' : 'btn btn-outline-info ms-1' "
+            >
                 {{action.title}}     
                 <i class="bi bi-{{action.icon}} text-success"></i>
             </button>

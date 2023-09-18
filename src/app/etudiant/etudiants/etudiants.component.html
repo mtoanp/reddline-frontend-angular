@@ -22,7 +22,11 @@
 
                 <tbody>
                     <tr *ngFor="let etudiant of etudiants">
-                        <td>{{etudiant.id}}</td>
+                        <td>
+                            <a routerLink="`api/admin/etudiants/${etudiant.id}`">
+                                {{etudiant.id}}
+                            </a>
+                        </td>
                         <td>{{etudiant.nom}}</td>
                         <td>{{etudiant.prenom}}</td>
                         <td>

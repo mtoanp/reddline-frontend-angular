@@ -15,10 +15,11 @@ import { FormationsComponent } from './formation/formations/formations.component
 import { CatalogueComponent } from './theme/catalogue/catalogue.component';
 import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
 import { NewEtudiantComponent } from './etudiant/new-etudiant/new-etudiant.component';
-import { EditEtudiantComponent } from './edit-etudiant/edit-etudiant.component';
 import { SallesComponent } from './salle/salles/salles.component';
 import { AdminTemplateComponent } from './admin/admin-template/admin-template.component';
 import { LoginComponent } from './public/login/login.component';
+import { ShowEtudiantComponent } from './etudiant/show-etudiant/show-etudiant.component';
+import { EditEtudiantComponent } from './etudiant/edit-etudiant/edit-etudiant.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { LoginComponent } from './public/login/login.component';
     EditEtudiantComponent,
     SallesComponent,
     AdminTemplateComponent,
-    LoginComponent
+    LoginComponent,
+    ShowEtudiantComponent
   ],
   imports: [
     BrowserModule,

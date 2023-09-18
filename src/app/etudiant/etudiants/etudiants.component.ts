@@ -30,11 +30,11 @@ export class EtudiantsComponent implements OnInit {
   }
 
   handleNewEtudiant() {
-    this.router.navigateByUrl("api/newEtudiant");
+    this.router.navigateByUrl("api/admin/newEtudiant");
   }
 
   handleEditEtudiant(product:Etudiant) {
-    this.router.navigateByUrl(`api/editEtudiant/${product.id}`);
+    this.router.navigateByUrl(`api/admin/editEtudiant/${product.id}`);
   }
 
   handleDeleteEtudiant(product:Etudiant) {

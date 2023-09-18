@@ -7,20 +7,20 @@ import { EtudiantService } from '../../service/etudiant.service';
   templateUrl: './new-etudiant.component.html',
   styleUrls: ['./new-etudiant.component.scss']
 })
-export class NewEtudiantComponent implements OnInit{
+export class NewEtudiantComponent implements OnInit {
 
-  public form!:FormGroup;
+  public formGroup!:FormGroup;
   constructor(private fb:FormBuilder, private service:EtudiantService) {}
 
   ngOnInit(): void {
-      this.form = this.fb.group({
+      this.formGroup = this.fb.group({
         nom: this.fb.control('', [Validators.required]),
         prenom: this.fb.control('', [Validators.required])  // value init
       })
   }
 
   saveEtudiant() {
-    let product = this.form.value;
+    let product = this.formGroup.value;
     this.service.save(product).subscribe({
       next: data => {
         // alert(JSON.stringify(data));

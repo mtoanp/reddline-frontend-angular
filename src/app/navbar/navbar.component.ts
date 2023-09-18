@@ -11,14 +11,18 @@ export class NavbarComponent implements OnInit {
   
   constructor (public authService: AuthenticationService, private router:Router) {}
 
-  actions:Array<any> = [
+  publicActions:Array<any> = [
     {title: "Home", route: "/api/home", icon: "house"},
     {title: "Catalogue", route: "/api/catalogue", icon: "search"},
-    {title: "Themes", route: "/api/themes", icon: "search"},
-    {title: "Formations", route: "/api/formations", icon: "safe"},
-    {title: "Etudiants", route: "/api/etudiants", icon: "people"},
-    {title: "Salles", route: "/api/salles", icon: "people"}
+    {title: "Formations", route: "/api/formations", icon: "safe"}
   ]
+
+  adminActions:Array<any> = [
+    {title: "Themes", route: "/api/admin/themes", icon: "search"},
+    {title: "Etudiants", route: "/api/admin/etudiants", icon: "people"},
+    {title: "Salles", route: "/api/admin/salles", icon: "people"}
+  ]
+  
   currentAction: any;
 
   setCurrentAction(action: any) {

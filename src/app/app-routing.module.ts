@@ -8,20 +8,26 @@ import { NewEtudiantComponent } from './etudiant/new-etudiant/new-etudiant.compo
 import { SallesComponent } from './salle/salles/salles.component';
 import { HomeComponent } from './public/home/home.component';
 import { LoginComponent } from './public/login/login.component';
+import { ShowEtudiantComponent } from './etudiant/show-etudiant/show-etudiant.component';
+import { EditEtudiantComponent } from './etudiant/edit-etudiant/edit-etudiant.component';
 
 const routes: Routes = [
-  {path: "api/home", component: HomeComponent},
-  {path: "api/login", component: LoginComponent },
-  {path: "api/catalogue", component: CatalogueComponent},
-  {path: "api/themes", component: ThemesComponent},
-  {path: "api/formations", component: FormationsComponent},
-
-  {path: "api/etudiants", component: EtudiantsComponent},
-  {path: "api/newEtudiant", component: NewEtudiantComponent},
-  {path: "api/editEtudiant", component: NewEtudiantComponent},
-
-  {path: "api/salles", component: SallesComponent}
-];
+  {path: "api", children: [
+    {path: "home", component: HomeComponent},
+    {path: "login", component: LoginComponent },
+    {path: "catalogue", component: CatalogueComponent},
+    {path: "formations", component: FormationsComponent},
+  
+    {path: "admin", children: [
+      {path: "themes", component: ThemesComponent},
+      {path: "etudiants", component: EtudiantsComponent},
+      {path: "etudiants/:id", component: ShowEtudiantComponent},
+      {path: "newEtudiant", component: NewEtudiantComponent},
+      {path: "editEtudiant/:id", component: EditEtudiantComponent},
+      {path: "salles", component: SallesComponent}
+    ]}
+  ]}
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
