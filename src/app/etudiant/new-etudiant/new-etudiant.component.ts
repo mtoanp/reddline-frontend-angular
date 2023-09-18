@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { EtudiantService } from '../service/etudiant.service';
+import { EtudiantService } from '../../service/etudiant.service';
 
 @Component({
   selector: 'app-new-etudiant',

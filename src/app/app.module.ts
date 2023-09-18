@@ -10,14 +10,15 @@ import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ThemesComponent } from './theme/themes/themes.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './static/home/home.component';
+import { HomeComponent } from './public/home/home.component';
 import { FormationsComponent } from './formation/formations/formations.component';
 import { CatalogueComponent } from './theme/catalogue/catalogue.component';
 import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
-import { NewEtudiantComponent } from './new-etudiant/new-etudiant.component';
+import { NewEtudiantComponent } from './etudiant/new-etudiant/new-etudiant.component';
 import { EditEtudiantComponent } from './edit-etudiant/edit-etudiant.component';
 import { SallesComponent } from './salle/salles/salles.component';
 import { AdminTemplateComponent } from './admin/admin-template/admin-template.component';
+import { LoginComponent } from './public/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AdminTemplateComponent } from './admin/admin-template/admin-template.co
     NewEtudiantComponent,
     EditEtudiantComponent,
     SallesComponent,
-    AdminTemplateComponent
+    AdminTemplateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
