@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { FormationService } from 'src/app/service/formation.service';
 
 @Component({
-  selector: 'app-show-formation',
-  templateUrl: './show-formation.component.html',
-  styleUrls: ['./show-formation.component.scss']
+  selector: 'app-sessions',
+  templateUrl: './sessions.component.html',
+  styleUrls: ['./sessions.component.scss']
 })
-export class ShowFormationComponent implements OnInit {
-  formation!:Formation;
+export class SessionsComponent implements OnInit {
   sessions:Session[] = [];
   id!:number;
 
@@ -24,7 +22,7 @@ export class ShowFormationComponent implements OnInit {
     this.id = this.activateRoute.snapshot.params['id'];
     this.service.getById(this.id).subscribe({
       next: (formation) => {
-        this.formation = formation;
+        // this.formation = formation;
         this.sessions = formation.sessions;
         // alert(JSON.stringify(formation));
       }, 
@@ -34,18 +32,16 @@ export class ShowFormationComponent implements OnInit {
     });
   }
 
+  handleShowSession(session:Session) {
 
-  // handleShowSession(session:Session) {
-
-  // }
+  }
 
 
-  // handleEditSession(session:Session) {
+  handleEditSession(session:Session) {
 
-  // }
+  }
 
-  // handleDeleteSession(session:Session) {
+  handleDeleteSession(session:Session) {
 
-  // }
-
+  }
 }

@@ -6,35 +6,7 @@
         <div class="card-body">
             <div *ngIf="formation" class="d-flex justify-content-between">
                 {{formation.id}} {{formation.nom}}
-                <table>
-                    Sessions:
-                    <tbody>
-                        <tr *ngFor="let session of sessions">
-                            <td (click)="handleShowSession(session)">
-                                <a>
-                                    {{session.id}}
-                                </a>
-                            </td>
-                            <!-- <td>{{session.nom}}</td> -->
-                            <td *ngIf="authService.isAdmin()">
-                                <button
-                                    (click)="handleEditSession(session)"
-                                    class="btn btn-outline-success"
-                                >
-                                    <i class="bi bi-pen"></i>
-                                </button>
-                            </td>
-                            <td *ngIf="authService.isAdmin()">
-                                <button
-                                    (click)="handleDeleteSession(session)"
-                                    class="btn btn-outline-danger"
-                                >
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>    
+                <app-sessions></app-sessions>
             </div>
         </div>
     </div>                   

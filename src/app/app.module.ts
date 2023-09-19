@@ -23,6 +23,10 @@ import { EditEtudiantComponent } from './etudiant/edit-etudiant/edit-etudiant.co
 import { NewFormationComponent } from './formation/new-formation/new-formation.component';
 import { EditFormationComponent } from './formation/edit-formation/edit-formation.component';
 import { ShowFormationComponent } from './formation/show-formation/show-formation.component';
+import { SessionsComponent } from './session/sessions/sessions.component';
+import { ShowSessionComponent } from './session/show-session/show-session.component';
+import { NewSessionComponent } from './session/new-session/new-session.component';
+import { EditSessionComponent } from './session/edit-session/edit-session.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { ShowFormationComponent } from './formation/show-formation/show-formatio
     ShowEtudiantComponent,
     NewFormationComponent,
     EditFormationComponent,
-    ShowFormationComponent
+    ShowFormationComponent,
+    SessionsComponent,
+    ShowSessionComponent,
+    NewSessionComponent,
+    EditSessionComponent
   ],
   imports: [
     BrowserModule,
