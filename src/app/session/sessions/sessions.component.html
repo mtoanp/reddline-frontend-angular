@@ -1,13 +1,19 @@
-<table>
-    Sessions:
+<table *ngIf="sessions" class="table">
+    <thead>
+        <tr>
+            <th>Session</th> <th>Date debut</th> <th>Date fin</th> <th>Capacité</th> <th>Actions</th>
+        </tr>
+    </thead>
     <tbody>
         <tr *ngFor="let session of sessions">
             <td (click)="handleShowSession(session)">
                 <a>
-                    {{session.id}} {{session.dateDeDebut}} {{session.dateDeFin}}
-                    {{session.capacite}} {{session.nbEtudiants}} 
+                    {{session.id}}   
                 </a>
             </td>
+            <td>{{session.dateDeDebut}}</td>
+            <td>{{session.dateDeFin}}</td>
+            <td>{{session.nbEtudiants}} / {{session.capacite}}</td>
             <!-- <td>{{session.nom}}</td> -->
             <td *ngIf="authService.isAdmin()">
                 <button

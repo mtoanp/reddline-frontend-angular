@@ -4,7 +4,7 @@ export interface Session {
     dateDeFin: string
     capacite: number
     idFormation: number
-    nbEtudiants: any
+    nbEtudiants: number
     etudiants: any[]
     candidats: any[]
     coursList: any[]
