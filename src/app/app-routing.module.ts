@@ -19,8 +19,7 @@ const routes: Routes = [
     {path: "catalogue", component: CatalogueComponent},
     {path: "formations", component: FormationsComponent},
   
-    // {path: "admin", component: AdminTemplateComponent, children: [
-    {path: "admin", children: [
+    {path: "admin", component: AdminTemplateComponent, children: [
       {path: "themes", component: ThemesComponent},
       {path: "etudiants", component: EtudiantsComponent},
       {path: "etudiants/:id", component: ShowEtudiantComponent},
