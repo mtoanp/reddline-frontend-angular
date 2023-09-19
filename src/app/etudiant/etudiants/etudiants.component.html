@@ -22,9 +22,8 @@
 
                 <tbody>
                     <tr *ngFor="let etudiant of etudiants">
-                        <td>
-                            <!-- <a routerLink="`api/admin/etudiants/${etudiant.id}`"> -->
-                            <a (click)="handleShowEtudiant(etudiant)">
+                        <td (click)="handleShowEtudiant(etudiant)">
+                            <a>
                                 {{etudiant.id}}
                             </a>
                         </td>

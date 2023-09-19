@@ -67,10 +67,11 @@ export class AuthenticationService {
   }
 
   isAdmin():boolean {
-    if(this.appState.authState.roles == undefined) {
-      return false;
-    } else {
-      return this.appState.authState.roles.includes('ADMIN');
-    }
+    // if(this.appState.authState.roles == undefined) {
+    //   return false;
+    // } else {
+    //   return this.appState.authState.roles.includes('ADMIN');
+    // }
+    return this.isAuthenticated();
   }
 }

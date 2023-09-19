@@ -9,7 +9,7 @@ import { EtudiantService } from 'src/app/service/etudiant.service';
   styleUrls: ['./edit-etudiant.component.scss']
 })
 export class EditEtudiantComponent implements OnInit {
-  public formGroup!:FormGroup;
+  formGroup!:FormGroup;
   id!:number;
 
   constructor(private fb:FormBuilder, 
@@ -20,7 +20,7 @@ export class EditEtudiantComponent implements OnInit {
     this.id = this.activateRoute.snapshot.params['id'];
     this.service.getById(this.id).subscribe({
       next: (etudiant) => {
-        console.log(etudiant);
+        // console.log(etudiant);
         this.formGroup = this.fb.group({
           id: this.fb.control(etudiant.id),
           nom: this.fb.control(etudiant.nom),

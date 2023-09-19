@@ -2,8 +2,7 @@
     <div class="card">
         <div class="card-body">
             <div class="row">
-                <div class="col-md-6">
-                    <!-- {{productForm.value | json}} -->
+                <div class="col-md-6" *ngIf="formGroup">
                     <form [formGroup]="formGroup" (ngSubmit)="updateEtudiant()" >
                         <div class="mb-3">
                             <label for="" class="form-label">Nom</label>
@@ -20,3 +19,4 @@
         </div>
     </div>
 </div>
+<!-- {{productForm.value | json}} -->
