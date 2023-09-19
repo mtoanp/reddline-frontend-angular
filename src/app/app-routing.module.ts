@@ -18,6 +18,7 @@ import { EditSessionComponent } from './session/edit-session/edit-session.compon
 import { NewSessionComponent } from './session/new-session/new-session.component';
 import { SessionsComponent } from './session/sessions/sessions.component';
 import { ShowSessionComponent } from './session/show-session/show-session.component';
+import { CoursComponent } from './cours/cours/cours.component';
 
 const routes: Routes = [
   {path: "api", children: [
@@ -27,6 +28,7 @@ const routes: Routes = [
     {path: "formations", component: FormationsComponent},
     {path: "formations/:id", component: ShowFormationComponent},
     {path: "sessions/:id", component: ShowSessionComponent},
+    {path: "coursList/:id", component: CoursComponent},
   
     {path: "admin", component: AdminTemplateComponent, children: [
       {path: "themes", component: ThemesComponent},

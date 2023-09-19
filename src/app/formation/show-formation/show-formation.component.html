@@ -1,7 +1,8 @@
 <div class="formation p-3">
     <div *ngIf="formation" class="card">
-        <div class="card-header">
-            Formation: {{formation.id}} - {{formation.nom}}
+        <div class="card-header d-flex justify-content-between">
+            <h3>Formation: {{formation.id}} - {{formation.nom}}</h3>
+            <button *ngIf="authService.isAdmin()" class="btn btn-outline-success">Nouveau Session</button>
         </div>
         <div class="card-body">
             <div  class="d-flex justify-content-between">

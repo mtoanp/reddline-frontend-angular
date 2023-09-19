@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
@@ -20,7 +20,8 @@ export class ShowSessionComponent implements OnInit {
   constructor( private formationService:FormationService,
                private sessionService:SessionService,
                public authService:AuthenticationService,
-               private activateRoute:ActivatedRoute
+               private activateRoute:ActivatedRoute,
+               private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -37,5 +38,13 @@ export class ShowSessionComponent implements OnInit {
         console.log(err);
       }
     });
+  }
+
+  coursList() {
+    this.router.navigateByUrl(`api/coursList/${this.session.id}`);
+  }
+
+  singupCandidature() {
+    console.log("sign up")
   }
 }

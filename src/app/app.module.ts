@@ -27,6 +27,7 @@ import { SessionsComponent } from './session/sessions/sessions.component';
 import { ShowSessionComponent } from './session/show-session/show-session.component';
 import { NewSessionComponent } from './session/new-session/new-session.component';
 import { EditSessionComponent } from './session/edit-session/edit-session.component';
+import { CoursComponent } from './cours/cours/cours.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { EditSessionComponent } from './session/edit-session/edit-session.compon
     SessionsComponent,
     ShowSessionComponent,
     NewSessionComponent,
-    EditSessionComponent
+    EditSessionComponent,
+    CoursComponent
   ],
   imports: [
     BrowserModule,

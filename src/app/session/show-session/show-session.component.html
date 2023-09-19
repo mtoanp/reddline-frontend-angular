@@ -6,7 +6,10 @@
         </div>
         
         <div class="card-body">
-            <button class="btn btn-outline-success">Planing</button>
+            <div class="d-flex justify-content-between">
+                <button (click)="coursList()" class="btn btn-outline-success">Planing</button>
+                <button (click)="singupCandidature()" class="btn btn-outline-success">Inscription</button>
+            </div>
 
             <div *ngIf="authService.isAdmin()" class="session-candidatures d-flex justify-content-between row">
                 <div class="candidats col-6">
