@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Etudiant } from 'src/app/model/etudiant.model';
 
 @Component({
   selector: 'app-show-etudiant',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./show-etudiant.component.scss']
 })
 export class ShowEtudiantComponent {
+
+
 
 }

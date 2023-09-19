@@ -40,18 +40,18 @@ export class EtudiantsComponent implements OnInit {
     this.router.navigateByUrl("api/admin/newEtudiant");
   }
 
-  handleEditEtudiant(product:Etudiant) {
-    this.router.navigateByUrl(`api/admin/editEtudiant/${product.id}`);
+  handleEditEtudiant(etudiant:Etudiant) {
+    this.router.navigateByUrl(`api/admin/editEtudiant/${etudiant.id}`);
   }
 
-  handleDeleteEtudiant(product:Etudiant) {
+  handleDeleteEtudiant(etudiant:Etudiant) {
     let conf = confirm("Are you sure ? ");
     if (conf==false) return;
 
-    this.etudiantService.delete(product).subscribe({
+    this.etudiantService.delete(etudiant).subscribe({
       next: value => {
         console.warn("deleted");
-        this.etudiants = this.etudiants.filter(p => p.id != product.id);
+        this.etudiants = this.etudiants.filter(p => p.id != etudiant.id);
       }, 
       error: err => {
         console.warn(err);
@@ -65,6 +65,10 @@ export class EtudiantsComponent implements OnInit {
         this.etudiants = data;
       }
     })
+  }
+
+  handleShowEtudiant(etudiant:Etudiant) {
+    this.router.navigateByUrl(`api/admin/etudiants/${etudiant.id}`);
   }
 
 }
