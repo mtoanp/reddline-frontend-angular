@@ -35,7 +35,7 @@ export class EtudiantService {
   }
 
   search(keyword:string):Observable<Array<Etudiant>> {
-    return this.http.get<Array<Etudiant>>(`${this.host}/${this.base}?name_like=${keyword}`);
+    return this.http.get<Array<Etudiant>>(`${this.host}/${this.base}?search=${keyword}`);
   }
 
 }

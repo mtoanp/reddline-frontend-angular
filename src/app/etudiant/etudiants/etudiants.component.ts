@@ -12,6 +12,10 @@ import { EtudiantService } from 'src/app/service/etudiant.service';
 })
 export class EtudiantsComponent implements OnInit {
   etudiants:Etudiant[] = [];
+  keyword:string = "";
+  totalPages:number = 1;
+  paseSize:number = 3;
+  currentPage:number = 1;
   // isAdmin:boolean = false;
   
   constructor(private etudiantService:EtudiantService,

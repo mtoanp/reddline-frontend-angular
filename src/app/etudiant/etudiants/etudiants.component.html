@@ -1,6 +1,15 @@
 <div class="p-3">
     <div class="card">
         <div class="card-body">
+            <!-- Search -->
+            <div class="card-body d-flex">
+                <!-- {{keyword}} -->
+                <input type="text" [(ngModel)]="keyword" class="form-control p-2 m-1">
+                <button (click)="searchEtudiants(keyword)" class="btn btn-outline-info m-1">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+
             <div class="d-flex justify-content-between">
                 <h2>Etudiants</h2>
                 <button *ngIf="authService.isAdmin()" class="btn btn-success"
