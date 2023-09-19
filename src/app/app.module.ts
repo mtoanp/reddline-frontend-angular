@@ -20,6 +20,9 @@ import { EtudiantsComponent } from './etudiant/etudiants/etudiants.component';
 import { NewEtudiantComponent } from './etudiant/new-etudiant/new-etudiant.component';
 import { ShowEtudiantComponent } from './etudiant/show-etudiant/show-etudiant.component';
 import { EditEtudiantComponent } from './etudiant/edit-etudiant/edit-etudiant.component';
+import { NewFormationComponent } from './formation/new-formation/new-formation.component';
+import { EditFormationComponent } from './formation/edit-formation/edit-formation.component';
+import { ShowFormationComponent } from './formation/show-formation/show-formation.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { EditEtudiantComponent } from './etudiant/edit-etudiant/edit-etudiant.co
     SallesComponent,
     AdminTemplateComponent,
     LoginComponent,
-    ShowEtudiantComponent
+    ShowEtudiantComponent,
+    NewFormationComponent,
+    EditFormationComponent,
+    ShowFormationComponent
   ],
   imports: [
     BrowserModule,

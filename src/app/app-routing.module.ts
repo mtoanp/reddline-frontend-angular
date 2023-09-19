@@ -11,6 +11,9 @@ import { LoginComponent } from './public/login/login.component';
 import { ShowEtudiantComponent } from './etudiant/show-etudiant/show-etudiant.component';
 import { EditEtudiantComponent } from './etudiant/edit-etudiant/edit-etudiant.component';
 import { AdminTemplateComponent } from './admin/admin-template/admin-template.component';
+import { EditFormationComponent } from './formation/edit-formation/edit-formation.component';
+import { NewFormationComponent } from './formation/new-formation/new-formation.component';
+import { ShowFormationComponent } from './formation/show-formation/show-formation.component';
 
 const routes: Routes = [
   {path: "api", children: [
@@ -18,13 +21,21 @@ const routes: Routes = [
     {path: "login", component: LoginComponent },
     {path: "catalogue", component: CatalogueComponent},
     {path: "formations", component: FormationsComponent},
+    {path: "formations/:id", component: ShowFormationComponent},
   
     {path: "admin", component: AdminTemplateComponent, children: [
       {path: "themes", component: ThemesComponent},
+
+      {path: "formations", component: FormationsComponent},
+      {path: "formations/:id", component: ShowFormationComponent},
+      {path: "newFormation", component: NewFormationComponent},
+      {path: "editFormation/:id", component: EditFormationComponent},
+
       {path: "etudiants", component: EtudiantsComponent},
       {path: "etudiants/:id", component: ShowEtudiantComponent},
       {path: "newEtudiant", component: NewEtudiantComponent},
       {path: "editEtudiant/:id", component: EditEtudiantComponent},
+
       {path: "salles", component: SallesComponent}
     ]}
   ]}
