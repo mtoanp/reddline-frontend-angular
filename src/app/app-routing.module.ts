@@ -14,6 +14,10 @@ import { AdminTemplateComponent } from './admin/admin-template/admin-template.co
 import { EditFormationComponent } from './formation/edit-formation/edit-formation.component';
 import { NewFormationComponent } from './formation/new-formation/new-formation.component';
 import { ShowFormationComponent } from './formation/show-formation/show-formation.component';
+import { EditSessionComponent } from './session/edit-session/edit-session.component';
+import { NewSessionComponent } from './session/new-session/new-session.component';
+import { SessionsComponent } from './session/sessions/sessions.component';
+import { ShowSessionComponent } from './session/show-session/show-session.component';
 
 const routes: Routes = [
   {path: "api", children: [
@@ -22,6 +26,7 @@ const routes: Routes = [
     {path: "catalogue", component: CatalogueComponent},
     {path: "formations", component: FormationsComponent},
     {path: "formations/:id", component: ShowFormationComponent},
+    {path: "sessions/:id", component: ShowSessionComponent},
   
     {path: "admin", component: AdminTemplateComponent, children: [
       {path: "themes", component: ThemesComponent},
@@ -30,6 +35,11 @@ const routes: Routes = [
       {path: "formations/:id", component: ShowFormationComponent},
       {path: "newFormation", component: NewFormationComponent},
       {path: "editFormation/:id", component: EditFormationComponent},
+
+      {path: "sessions", component: SessionsComponent},
+      {path: "sessions/:id", component: ShowSessionComponent},
+      {path: "newSession", component: NewSessionComponent},
+      {path: "editSession/:id", component: EditSessionComponent},
 
       {path: "etudiants", component: EtudiantsComponent},
       {path: "etudiants/:id", component: ShowEtudiantComponent},
