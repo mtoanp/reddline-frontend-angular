@@ -44,7 +44,7 @@ export class ShowSessionComponent implements OnInit {
     this.router.navigateByUrl(`api/coursList/${this.session.id}`);
   }
 
-  singupCandidature() {
-    console.log("sign up")
+  newCandidature() {
+    this.router.navigateByUrl(`api/newCandidature/${this.session.id}`);
   }
 }

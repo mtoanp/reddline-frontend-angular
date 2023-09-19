@@ -7,8 +7,8 @@
         
         <div class="card-body">
             <div class="d-flex justify-content-between">
-                <button (click)="coursList()" class="btn btn-outline-success">Planing</button>
-                <button (click)="singupCandidature()" class="btn btn-outline-success">Inscription</button>
+                <button (click)="coursList()" class="btn btn-outline-success">Planning</button>
+                <button (click)="newCandidature()" class="btn btn-outline-success">Inscription</button>
             </div>
 
             <div *ngIf="authService.isAdmin()" class="session-candidatures d-flex justify-content-between row">
@@ -51,7 +51,7 @@
                                     <td>{{c.id}}</td> 
                                     <td>{{c.nom}}</td> 
                                     <td>{{c.prenom}}</td>               
-                                    <td><button class="btn btn-outline-danger">Refuser</button></td>
+                                    <td><button class="btn btn-outline-danger">Suprimer</button></td>
                                 </tr>
                                 </tbody>
                             </table>

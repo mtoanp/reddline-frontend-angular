@@ -24,7 +24,7 @@ export class CoursComponent implements OnInit {
   coursList:Cours[] = [];
 
   ngOnInit(): void {
-    this.sessionService.getById(this.activateRoute.snapshot.params['id']).subscribe({
+    this.sessionService.getById(this.activateRoute.snapshot.params['session_id']).subscribe({
       next: session => {
         this.session = session;
         this.coursList = session.coursList;

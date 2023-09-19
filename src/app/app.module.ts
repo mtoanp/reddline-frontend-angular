@@ -28,6 +28,7 @@ import { ShowSessionComponent } from './session/show-session/show-session.compon
 import { NewSessionComponent } from './session/new-session/new-session.component';
 import { EditSessionComponent } from './session/edit-session/edit-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
+import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CoursComponent } from './cours/cours/cours.component';
     ShowSessionComponent,
     NewSessionComponent,
     EditSessionComponent,
-    CoursComponent
+    CoursComponent,
+    NewCandidatureComponent
   ],
   imports: [
     BrowserModule,
