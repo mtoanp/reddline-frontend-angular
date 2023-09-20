@@ -29,6 +29,11 @@ import { NewSessionComponent } from './session/new-session/new-session.component
 import { EditSessionComponent } from './session/edit-session/edit-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
 import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
+import { QuiSommesNousComponent } from './qui-sommes-nous/qui-sommes-nous.component';
+import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
+import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
+import { NewSalleComponent } from './salle/new-salle/new-salle.component';
+import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +62,12 @@ import { NewCandidatureComponent } from './candidature/new-candidature/new-candi
     NewSessionComponent,
     EditSessionComponent,
     CoursComponent,
-    NewCandidatureComponent
+    NewCandidatureComponent,
+    QuiSommesNousComponent,
+    ContactezNousComponent,
+    EditSalleComponent,
+    NewSalleComponent,
+    ShowSalleComponent
   ],
   imports: [
     BrowserModule,

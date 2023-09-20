@@ -8,21 +8,22 @@ import { Salle } from '../model/salle.model';
 })
 
 export class SalleService {
+  host:string = "http://localhost:8080/api";
   base:string = "salles";
 
   constructor(private http:HttpClient) { }
 
   getAll():Observable<Salle[]> {
-    return this.http.get<Salle[]>(`http://localhost:8080/api/${this.base}`);
+    return this.http.get<Salle[]>(`${this.host}/${this.base}`);
   }
 
   getById(id:number):Observable<Salle> {
     return this.http.get<Salle>
-    (`http://localhost:8088/${this.base}/${id}`);
+    (`${this.host}/${this.base}/${id}`);
   }
 
   delete(obj:Salle) {
-    return this.http.delete<any>(`http://localhost:8088/api/${this.base}/${obj.id}`);
+    return this.http.delete<any>(`${this.host}/${this.base}/${obj.id}`);
   }
   
   save(obj:Salle):Observable<Salle> {
@@ -30,11 +31,11 @@ export class SalleService {
   }
 
   update(obj: Salle) {
-    return this.http.put<Salle>(`http://localhost:8088/api/${this.base}/${obj.id}`, obj);
+    return this.http.put<Salle>(`${this.host}/${this.base}/${obj.id}`, obj);
   }
 
   search(keyword:string):Observable<Array<Salle>> {
-    return this.http.get<Array<Salle>>(`http://localhost:8088/api/${this.base}?name_like=${keyword}`);
+    return this.http.get<Array<Salle>>(`${this.host}/${this.base}?search=${keyword}`);
   }
 
 }

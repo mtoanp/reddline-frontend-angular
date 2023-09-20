@@ -20,6 +20,11 @@ import { SessionsComponent } from './session/sessions/sessions.component';
 import { ShowSessionComponent } from './session/show-session/show-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
 import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
+import { QuiSommesNousComponent } from './qui-sommes-nous/qui-sommes-nous.component';
+import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
+import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
+import { NewSalleComponent } from './salle/new-salle/new-salle.component';
+import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
 
 const routes: Routes = [
   {path: "api", children: [
@@ -31,6 +36,8 @@ const routes: Routes = [
     {path: "sessions/:id", component: ShowSessionComponent},
     {path: "coursList/:session_id", component: CoursComponent},
     {path: "newCandidature/:session_id", component: NewCandidatureComponent},
+    {path: "qui-sommes-nous", component: QuiSommesNousComponent},
+    {path: "contactez-nous", component: ContactezNousComponent},
   
     {path: "admin", component: AdminTemplateComponent, children: [
       {path: "themes", component: ThemesComponent},
@@ -50,7 +57,12 @@ const routes: Routes = [
       {path: "newEtudiant", component: NewEtudiantComponent},
       {path: "editEtudiant/:id", component: EditEtudiantComponent},
 
-      {path: "salles", component: SallesComponent}
+      {path: "salles", component: SallesComponent},
+      {path: "salles/:id", component: ShowSalleComponent},
+      {path: "newSalle", component: NewSalleComponent},
+      {path: "editSalle/:id", component: EditSalleComponent}
+
+     
     ]}
   ]}
 ]
