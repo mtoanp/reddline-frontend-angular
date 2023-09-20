@@ -21,16 +21,16 @@ export class SessionService {
     (`${this.host}/${this.base}/${id}`);
   }
 
-  delete(obj:Session) {
-    return this.http.delete<any>(`${this.host}/${this.base}/${obj.id}`);
+  delete(session:Session) {
+    return this.http.delete<any>(`${this.host}/${this.base}/${session.id}`);
   }
   
-  save(obj:Session):Observable<Session> {
-    return this.http.post<Session>(`${this.host}/${this.base}`, obj);
+  save(session:Session):Observable<Session> {
+    return this.http.post<Session>(`${this.host}/${this.base}`, session);
   }
 
-  update(obj: Session) {
-    return this.http.put<Session>(`${this.host}/${this.base}/${obj.id}`, obj);
+  update(session: Session) {
+    return this.http.put<Session>(`${this.host}/${this.base}/${session.id}`, session);
   }
 
   search(keyword:string):Observable<Array<Session>> {

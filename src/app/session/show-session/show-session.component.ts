@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
+import { CandidatureService } from 'src/app/service/candidature.service';
 import { FormationService } from 'src/app/service/formation.service';
 import { SessionService } from 'src/app/service/session.service';
 
@@ -19,6 +20,7 @@ export class ShowSessionComponent implements OnInit {
 
   constructor( private formationService:FormationService,
                private sessionService:SessionService,
+               private candidatureService:CandidatureService,
                public authService:AuthenticationService,
                private activateRoute:ActivatedRoute,
                private router:Router
@@ -48,6 +50,7 @@ export class ShowSessionComponent implements OnInit {
     this.router.navigateByUrl(`api/newCandidature/${this.session.id}`);
   }
 
+  addCandidature(candidature:any) {}
   acceptCandidature(candidature:any) {}
   denyCandidature(candidature:any) {}
   removeCandidature(candidature:any) {}
