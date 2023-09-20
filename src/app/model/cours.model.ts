@@ -1,5 +1,7 @@
 export interface Cours {
     id:string ;
-    matiere:string;
-    salle:number;
+    date:Date;
+    matiere:any;
+    professeur:any;
+    salle:any;
 }
