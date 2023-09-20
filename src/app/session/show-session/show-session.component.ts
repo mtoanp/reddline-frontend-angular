@@ -47,4 +47,8 @@ export class ShowSessionComponent implements OnInit {
   newCandidature() {
     this.router.navigateByUrl(`api/newCandidature/${this.session.id}`);
   }
+
+  acceptCandidature(candidature:any) {}
+  denyCandidature(candidature:any) {}
+  removeCandidature(candidature:any) {}
 }

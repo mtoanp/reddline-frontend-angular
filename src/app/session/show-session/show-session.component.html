@@ -26,9 +26,23 @@
                                 <tr>
                                     <td>{{c.id}}</td> 
                                     <td>{{c.nom}}</td> 
-                                    <td>{{c.prenom}}</td>
-                                    <td><button class="btn btn-outline-success">Valider</button></td>
-                                    <td><button class="btn btn-outline-danger">Refuser</button></td>
+                                    <td>{{c.prenom}}</td>                                    
+                                    <td>
+                                        <button
+                                            (click)="acceptCandidature(c)"
+                                            class="btn btn-outline-success"
+                                        >
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button
+                                            (click)="denyCandidature(c)"
+                                            class="btn btn-outline-danger"
+                                        >
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -51,7 +65,14 @@
                                     <td>{{c.id}}</td> 
                                     <td>{{c.nom}}</td> 
                                     <td>{{c.prenom}}</td>               
-                                    <td><button class="btn btn-outline-danger">Suprimer</button></td>
+                                    <td>
+                                        <button
+                                            (click)="removeCandidature(c)"
+                                            class="btn btn-outline-danger"
+                                        >
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
