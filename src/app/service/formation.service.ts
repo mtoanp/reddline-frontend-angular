@@ -34,6 +34,6 @@ export class FormationService {
   }
 
   search(keyword:string):Observable<Array<Formation>> {
-    return this.http.get<Array<Formation>>(`${this.host}/${this.base}?search=${keyword}`);
+    return this.http.get<Array<Formation>>(`${this.host}/${this.base}/search=${keyword}`);
   }
 }

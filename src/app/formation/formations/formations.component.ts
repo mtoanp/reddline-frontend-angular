@@ -30,7 +30,7 @@ export class FormationsComponent implements OnInit {
   getAll() {
     this.formationService.getAll().subscribe({
       next: data => {
-        console.log(data);
+        // console.log(data);
         this.formations = data;
       },
       error: err => {
@@ -68,9 +68,11 @@ export class FormationsComponent implements OnInit {
   }
 
   searchFormations(keyword:string) {
+    // console.warn(keyword);
     this.formationService.search(keyword).subscribe({
       next: data => {
         this.formations = data;
+        // console.warn(data);
       }
     })
   }
