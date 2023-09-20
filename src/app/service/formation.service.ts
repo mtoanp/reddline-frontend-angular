@@ -21,16 +21,16 @@ export class FormationService {
     (`${this.host}/${this.base}/${id}`);
   }
 
-  delete(obj:Formation) {
-    return this.http.delete<any>(`${this.host}/${this.base}/${obj.id}`);
+  delete(formation:Formation) {
+    return this.http.delete<any>(`${this.host}/${this.base}/${formation.id}`);
   }
   
-  save(obj:Formation):Observable<Formation> {
-    return this.http.post<Formation>(`${this.host}/${this.base}`, obj);
+  save(formation:Formation):Observable<Formation> {
+    return this.http.post<Formation>(`${this.host}/${this.base}`, formation);
   }
 
-  update(obj: Formation) {
-    return this.http.put<Formation>(`${this.host}/${this.base}/${obj.id}`, obj);
+  update(formation: Formation) {
+    return this.http.put<Formation>(`${this.host}/${this.base}`, formation);
   }
 
   search(keyword:string):Observable<Array<Formation>> {

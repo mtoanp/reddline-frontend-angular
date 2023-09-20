@@ -8,6 +8,14 @@
                             <label for="" class="form-label">Nom</label>
                             <input type="text" class="form-control" formControlName="nom">
                         </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Description</label>
+                            <input type="text" class="form-control" formControlName="description">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Prix</label>
+                            <input type="text" class="form-control" formControlName="prix">
+                        </div>
                         <button [disabled]="formGroup.invalid" class="btn btn-success">Save</button>
                     </form>
                 </div>

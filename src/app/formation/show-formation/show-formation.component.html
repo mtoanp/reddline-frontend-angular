@@ -5,7 +5,11 @@
             <button *ngIf="authService.isAdmin()" class="btn btn-outline-success">Nouveau Session</button>
         </div>
         <div class="card-body">
-            <div  class="d-flex justify-content-between">
+            <div class="formation-description font-italic">
+                Description:
+                {{formation.description}}
+            </div>
+            <div class="mt-3 d-flex justify-content-between">
                 <app-sessions></app-sessions>
             </div>
         </div>

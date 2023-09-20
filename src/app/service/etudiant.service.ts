@@ -31,7 +31,7 @@ export class EtudiantService {
   }
 
   update(obj: Etudiant) {
-    return this.http.put<Etudiant>(`${this.host}/${this.base}/${obj.id}`, obj);
+    return this.http.put<Etudiant>(`${this.host}/${this.base}`, obj);
   }
 
   search(keyword:string):Observable<Array<Etudiant>> {

@@ -25,7 +25,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>id</th> <th>Nom</th> <th>Update</th> <th>Delete</th>
+                        <th>id</th> <th>Nom</th> <th>Prix</th> <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -37,6 +37,7 @@
                             </a>
                         </td>
                         <td>{{formation.nom}}</td>
+                        <td>{{formation.prix}} €</td>
                         <td *ngIf="authService.isAdmin()">
                             <button
                                 (click)="handleEditFormation(formation)"

@@ -39,6 +39,10 @@ export class FormationsComponent implements OnInit {
     })
   }
 
+  handleShowFormation(formation:Formation) {
+    this.router.navigateByUrl(`api/formations/${formation.id}`);
+  }
+
   handleNewFormation() {
     this.router.navigateByUrl("api/admin/newFormation");
   }
@@ -50,6 +54,7 @@ export class FormationsComponent implements OnInit {
   handleDeleteFormation(formation:Formation) {
     let conf = confirm("Are you sure ? ");
     if (conf==false) return;
+    // this.formations = this.formations.filter(p => p.id != formation.id);
 
     this.formationService.delete(formation).subscribe({
       next: value => {
@@ -70,7 +75,4 @@ export class FormationsComponent implements OnInit {
     })
   }
 
-  handleShowFormation(formation:Formation) {
-    this.router.navigateByUrl(`api/formations/${formation.id}`);
-  }
 }
