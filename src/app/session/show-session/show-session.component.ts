@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Candidature } from 'src/app/model/candidature.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
@@ -50,8 +51,41 @@ export class ShowSessionComponent implements OnInit {
     this.router.navigateByUrl(`api/newCandidature/${this.session.id}`);
   }
 
-  addCandidature(candidature:any) {}
-  acceptCandidature(candidature:any) {}
-  denyCandidature(candidature:any) {}
-  removeCandidature(candidature:any) {}
+  // saveCandidature() {}
+  removeCandidature(candidature:Candidature) {
+    this.candidatureService.update(candidature).subscribe({
+      next: data => {
+        // alert(JSON.stringify(data));
+        console.warn("removeCandidature");
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
+  }
+
+  acceptCandidature(candidature:Candidature) {
+    this.candidatureService.update(candidature).subscribe({
+      next: data => {
+        // alert(JSON.stringify(data));
+        console.warn("acceptCandidature");
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
+  }
+
+  denyCandidature(candidature:Candidature) {
+    this.candidatureService.update(candidature).subscribe({
+      next: data => {
+        // alert(JSON.stringify(data));
+        console.warn("denyCandidature");
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
+  }
+
 }

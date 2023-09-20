@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
+import { CandidatureService } from 'src/app/service/candidature.service';
 import { EtudiantService } from 'src/app/service/etudiant.service';
 import { SessionService } from 'src/app/service/session.service';
 
@@ -15,6 +16,7 @@ export class NewCandidatureComponent implements OnInit {
   
   constructor(  private fb:FormBuilder, 
                 private sessionService:SessionService,
+                private candidatureService:CandidatureService,
                 private activateRoute:ActivatedRoute
   ) {}
 
@@ -41,14 +43,14 @@ export class NewCandidatureComponent implements OnInit {
 
   saveCandidature() {
     let candidature = this.formGroup.value;
-    alert(JSON.stringify(candidature));
-    // this.service.save(candidature).subscribe({
-    //   next: data => {
-        // alert(JSON.stringify(data));
-      // },
-      // error: err => {
-      //   console.log(err);
-      // }
-    // })
+    console.warn(JSON.stringify(candidature));
+    this.candidatureService.save(candidature).subscribe({
+      next: data => {
+        alert(JSON.stringify(data));
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
   }
 }

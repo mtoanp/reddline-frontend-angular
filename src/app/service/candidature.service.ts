@@ -12,8 +12,20 @@ export class CandidatureService {
 
   constructor(private http:HttpClient) { }
 
-  addCandidature(candidature:Candidature):Observable<Candidature> {
+  save(candidature:Candidature):Observable<Candidature> {
     return this.http.post<Candidature>(`${this.host}/${this.base}`, candidature);
   }
 
+  update(candidature: Candidature) {
+    return this.http.put<Candidature>(`${this.host}/${this.base}`, candidature);
+  }
+  
+  patch(candidature: Candidature):Observable<Candidature> {
+    return this.http.patch<Candidature>(`${this.host}/${this.base}/${candidature.idSession}`, {active:!candidature.active});
+  }
+  
+  delete(candidature:Candidature) {
+    return this.http.delete<any>(`${this.host}/${this.base}/delete?idSession=${candidature.idSession}&idEtudiant=${candidature.idEtudiant}`);
+  }
+  
 }
