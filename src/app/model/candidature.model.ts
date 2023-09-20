@@ -1,5 +1,5 @@
-export interface Candidature {
-    idSession:number;
-    idEtudiant:number;
-    active:boolean;
+export class Candidature {
+    idSession!:number;
+    idEtudiant!:number;
+    valide!:boolean;
 }

@@ -29,7 +29,7 @@
                                     <td>{{c.prenom}}</td>                                    
                                     <td>
                                         <button
-                                            (click)="acceptCandidature(c)"
+                                            (click)="updateCandidature(c, true)"
                                             class="btn btn-outline-success"
                                         >
                                             <i class="bi bi-check"></i>
@@ -37,7 +37,7 @@
                                     </td>
                                     <td>
                                         <button
-                                            (click)="denyCandidature(c)"
+                                            (click)="deleteCandidature(c)"
                                             class="btn btn-outline-danger"
                                         >
                                             <i class="bi bi-trash"></i>
@@ -67,7 +67,7 @@
                                     <td>{{c.prenom}}</td>               
                                     <td>
                                         <button
-                                            (click)="removeCandidature(c)"
+                                            (click)="updateCandidature(c, false)"
                                             class="btn btn-outline-danger"
                                         >
                                             <i class="bi bi-trash"></i>

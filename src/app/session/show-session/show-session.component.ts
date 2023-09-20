@@ -18,6 +18,7 @@ export class ShowSessionComponent implements OnInit {
   session!:Session;
   // sessions:Session[] = [];
   id!:number;
+  // candidature!:Candidature;
 
   constructor( private formationService:FormationService,
                private sessionService:SessionService,
@@ -52,8 +53,8 @@ export class ShowSessionComponent implements OnInit {
   }
 
   // saveCandidature() {}
-  removeCandidature(candidature:Candidature) {
-    this.candidatureService.update(candidature).subscribe({
+  deleteCandidature(candidature:Candidature) {
+    this.candidatureService.delete(candidature).subscribe({
       next: data => {
         // alert(JSON.stringify(data));
         console.warn("removeCandidature");
@@ -64,11 +65,12 @@ export class ShowSessionComponent implements OnInit {
     })
   }
 
-  acceptCandidature(candidature:Candidature) {
-    this.candidatureService.update(candidature).subscribe({
+  
+  updateCandidature(etudiant:any, status:boolean) {
+    this.candidatureService.update(this.buildCandidature(etudiant.id, status)).subscribe({
       next: data => {
         // alert(JSON.stringify(data));
-        console.warn("acceptCandidature");
+        console.warn("updateCandidature");
       },
       error: err => {
         console.log(err);
@@ -76,16 +78,14 @@ export class ShowSessionComponent implements OnInit {
     })
   }
 
-  denyCandidature(candidature:Candidature) {
-    this.candidatureService.update(candidature).subscribe({
-      next: data => {
-        // alert(JSON.stringify(data));
-        console.warn("denyCandidature");
-      },
-      error: err => {
-        console.log(err);
-      }
-    })
+  
+  buildCandidature(idEtudiant:number, status:boolean):Candidature {
+    let candidature:Candidature = new Candidature();  // Candidature as class
+    candidature.idSession = this.session.id;
+    candidature.idEtudiant = idEtudiant;
+    candidature.valide = status;
+    // alert(JSON.stringify(candidature));
+    return candidature;
   }
 
 }

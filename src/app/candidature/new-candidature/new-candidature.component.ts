@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Candidature } from 'src/app/model/candidature.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
 import { CandidatureService } from 'src/app/service/candidature.service';
@@ -17,6 +18,7 @@ export class NewCandidatureComponent implements OnInit {
   constructor(  private fb:FormBuilder, 
                 private sessionService:SessionService,
                 private candidatureService:CandidatureService,
+                private etudiantService:EtudiantService,
                 private activateRoute:ActivatedRoute
   ) {}
 
@@ -42,15 +44,30 @@ export class NewCandidatureComponent implements OnInit {
   }
 
   saveCandidature() {
-    let candidature = this.formGroup.value;
-    console.warn(JSON.stringify(candidature));
-    this.candidatureService.save(candidature).subscribe({
-      next: data => {
-        alert(JSON.stringify(data));
+    // console.warn("Save Candidature");
+    let etudiant = this.formGroup.value;
+    this.etudiantService.save(etudiant).subscribe({
+      next: etudiant => {
+        alert(JSON.stringify(etudiant));
+        let candidature:Candidature = new Candidature();  // Candidature as class
+        candidature.idSession = this.session.id;
+        candidature.idEtudiant = etudiant.id;
+        candidature.valide = false;
+
+        this.candidatureService.save(candidature).subscribe({
+          next: data => {
+            // alert(JSON.stringify(data));
+          },
+          error: err => {
+            console.log(err);
+          }
+        })
       },
+
       error: err => {
         console.log(err);
       }
     })
+    // console.warn(JSON.stringify(candidature));
   }
 }

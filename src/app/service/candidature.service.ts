@@ -21,11 +21,12 @@ export class CandidatureService {
   }
   
   patch(candidature: Candidature):Observable<Candidature> {
-    return this.http.patch<Candidature>(`${this.host}/${this.base}/${candidature.idSession}`, {active:!candidature.active});
+    return this.http.patch<Candidature>(`${this.host}/${this.base}/${candidature.idSession}`, {valide:!candidature.valide});
   }
   
   delete(candidature:Candidature) {
-    return this.http.delete<any>(`${this.host}/${this.base}/delete?idSession=${candidature.idSession}&idEtudiant=${candidature.idEtudiant}`);
+    return this.http.delete<any>(`${this.host}/${this.base}`, {body: candidature});
+    // return this.http.delete<any>(`${this.host}/${this.base}/delete?idSession=${candidature.idSession}&idEtudiant=${candidature.idEtudiant}`);
   }
   
 }
