@@ -1,0 +1,64 @@
+.catalogue {
+	font-size: 1.1em;
+	text-transform: capitalize;
+    .card-body {
+        background-color: #eefbfd;
+    }   
+}
+
+.catalogue .cata {
+	margin: 15px 40px;
+	padding: 0.6rem;
+	border-top: 1px solid #50b7cd;
+	border-bottom: 1px solid #50b7cd;
+	border-left: 5px solid #50b7cd;
+	border-right: 5px solid #50b7cd;
+	border-radius: 4px;
+}
+
+.catalogue .cata .theme {
+	width: 100%;
+	background-color: #eefbfd;
+	border-radius: 4px;
+	margin: 0;
+	padding: 0;
+}
+
+.catalogue .cata .theme a {
+	text-decoration: none;
+}
+	
+.catalogue .cata-formations {
+    background-color: #f9f9f9;
+}
+
+.catalogue .formations, .cata .formations {
+	margin: 0 20px;
+}
+
+.catalogue .formations, .cata .formations a {
+	text-decoration: none;
+}
+
+.theme i {
+    padding: 15px;
+	padding-right: 12px;
+	color: #38a5b1;
+}
+
+.theme-form {
+	max-width: 800px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.theme-form .form, .theme-form .formations {
+	margin: 20px;
+}
+
+.section-title {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 25px;
+}

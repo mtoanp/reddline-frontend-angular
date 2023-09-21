@@ -25,11 +25,14 @@ export class CandidatureService {
   }
   
   delete(candidature:Candidature) {
-    const header: HttpHeaders = new HttpHeaders()
+    // const header: HttpHeaders = new HttpHeaders()
+    // const httpOptions = {
+      
+    //   };
     const options = {
-      headers: header,
-      body: candidature
-      // body: JSON.stringify(candidature)
+      headers: new HttpHeaders({ 'Content-Type' : 'application/json'}),
+      // body: candidature
+      body: JSON.stringify(candidature)
     };
     return this.http.delete<any>(`${this.host}/${this.base}`, options);
     // return this.http.delete<any>(`${this.host}/${this.base}`, {body: candidature});

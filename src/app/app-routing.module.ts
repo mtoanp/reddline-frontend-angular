@@ -20,12 +20,14 @@ import { SessionsComponent } from './session/sessions/sessions.component';
 import { ShowSessionComponent } from './session/show-session/show-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
 import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
+import { ThemeTreeComponent } from './theme/theme-tree/theme-tree.component';
 
 const routes: Routes = [
   {path: "api", children: [
     {path: "home", component: HomeComponent},
     {path: "login", component: LoginComponent },
     {path: "catalogue", component: CatalogueComponent},
+    {path: "themeTree", component: ThemeTreeComponent},
     {path: "formations", component: FormationsComponent},
     {path: "formations/:id", component: ShowFormationComponent},
     {path: "sessions/:id", component: ShowSessionComponent},

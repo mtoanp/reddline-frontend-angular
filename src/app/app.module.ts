@@ -29,6 +29,7 @@ import { NewSessionComponent } from './session/new-session/new-session.component
 import { EditSessionComponent } from './session/edit-session/edit-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
 import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
+import { ThemeTreeComponent } from './theme/theme-tree/theme-tree.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { NewCandidatureComponent } from './candidature/new-candidature/new-candi
     NewSessionComponent,
     EditSessionComponent,
     CoursComponent,
-    NewCandidatureComponent
+    NewCandidatureComponent,
+    ThemeTreeComponent
   ],
   imports: [
     BrowserModule,

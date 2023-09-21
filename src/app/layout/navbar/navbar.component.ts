@@ -16,8 +16,8 @@ export class NavbarComponent implements OnInit {
 
   publicActions:Array<any> = [
     {title: "Home", route: "/api/home", icon: "house"},
-    {title: "Catalogue", route: "/api/catalogue", icon: "search"},
-    {title: "Formations", route: "/api/formations", icon: "safe"}
+    {title: "Catalogue", route: "/api/catalogue", icon: "search"}
+    // {title: "Formations", route: "/api/formations", icon: "safe"}
   ]
 
   adminActions:Array<any> = [
