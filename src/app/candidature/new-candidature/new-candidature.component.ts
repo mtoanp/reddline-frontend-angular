@@ -45,8 +45,12 @@ export class NewCandidatureComponent implements OnInit {
 
   saveCandidature() {
     let etudiant = this.formGroup.value;
-    // email.includes(etudiant)
-    console.log(this.session.etudiants(e => e.email = etudiant.email));
+    // console.log(this.session.candidats.find((element) => element.email === etudiant.email));
+    if(this.session.candidats.find((element) => element.email === etudiant.email)) {
+      console.log("Error: email already existed");
+      return;
+    }
+
     this.etudiantService.save(etudiant).subscribe({
       next: etudiant => {
         alert(JSON.stringify(etudiant));
