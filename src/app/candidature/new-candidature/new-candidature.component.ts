@@ -44,8 +44,9 @@ export class NewCandidatureComponent implements OnInit {
   }
 
   saveCandidature() {
-    // console.warn("Save Candidature");
     let etudiant = this.formGroup.value;
+    // email.includes(etudiant)
+    console.log(this.session.etudiants(e => e.email = etudiant.email));
     this.etudiantService.save(etudiant).subscribe({
       next: etudiant => {
         alert(JSON.stringify(etudiant));

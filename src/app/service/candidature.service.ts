@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Candidature } from '../model/candidature.model';
@@ -25,7 +25,14 @@ export class CandidatureService {
   }
   
   delete(candidature:Candidature) {
-    return this.http.delete<any>(`${this.host}/${this.base}`, {body: candidature});
+    const header: HttpHeaders = new HttpHeaders()
+    const options = {
+      headers: header,
+      body: candidature
+      // body: JSON.stringify(candidature)
+    };
+    return this.http.delete<any>(`${this.host}/${this.base}`, options);
+    // return this.http.delete<any>(`${this.host}/${this.base}`, {body: candidature});
     // return this.http.delete<any>(`${this.host}/${this.base}/delete?idSession=${candidature.idSession}&idEtudiant=${candidature.idEtudiant}`);
   }
   

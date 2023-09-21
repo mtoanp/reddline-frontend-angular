@@ -2,7 +2,8 @@
     <div *ngIf="session && formation" class="card" >
         <div class="card-header d-flex justify-content-between">
             <h3>Formation {{formation.nom}} | Session {{session.id}} | ( {{session.dateDeDebut}} - {{session.dateDeFin}})</h3>
-            <h3>{{session.nbEtudiants}} / {{session.capacite}}</h3>
+            <h3>{{session.etudiants.length}} / {{session.capacite}}</h3>
+            <!-- {{session.nbEtudiants}} -->
         </div>
         
         <div class="card-body">
@@ -26,7 +27,8 @@
                                 <tr>
                                     <td>{{c.id}}</td> 
                                     <td>{{c.nom}}</td> 
-                                    <td>{{c.prenom}}</td>                                    
+                                    <td>{{c.prenom}}</td>      
+
                                     <td>
                                         <button
                                             (click)="updateCandidature(c, true)"
@@ -35,6 +37,7 @@
                                             <i class="bi bi-check"></i>
                                         </button>
                                     </td>
+
                                     <td>
                                         <button
                                             (click)="deleteCandidature(c)"
@@ -43,6 +46,7 @@
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </td>
+
                                 </tr>
                                 </tbody>
                             </table>
@@ -64,7 +68,8 @@
                                 <tr>
                                     <td>{{c.id}}</td> 
                                     <td>{{c.nom}}</td> 
-                                    <td>{{c.prenom}}</td>               
+                                    <td>{{c.prenom}}</td>   
+
                                     <td>
                                         <button
                                             (click)="updateCandidature(c, false)"
@@ -73,6 +78,7 @@
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </td>
+
                                 </tr>
                                 </tbody>
                             </table>

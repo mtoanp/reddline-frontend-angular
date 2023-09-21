@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Candidature } from 'src/app/model/candidature.model';
+import { Etudiant } from 'src/app/model/etudiant.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
 import { AuthenticationService } from 'src/app/service/authentication.service';
@@ -53,7 +54,10 @@ export class ShowSessionComponent implements OnInit {
   }
 
   // saveCandidature() {}
+
   deleteCandidature(candidature:Candidature) {
+    candidature.valide = false;
+    console.warn(candidature);
     this.candidatureService.delete(candidature).subscribe({
       next: data => {
         // alert(JSON.stringify(data));
@@ -66,11 +70,19 @@ export class ShowSessionComponent implements OnInit {
   }
 
   
-  updateCandidature(etudiant:any, status:boolean) {
+  updateCandidature(etudiant:Etudiant, status:boolean) {
+    if(status && (this.session.etudiants.length >= this.session.capacite)) return;
+
     this.candidatureService.update(this.buildCandidature(etudiant.id, status)).subscribe({
       next: data => {
         // alert(JSON.stringify(data));
-        console.warn("updateCandidature");
+        if(status) {
+          this.session.candidats = this.session.candidats.filter(p => p.id != etudiant.id);
+          this.session.etudiants.push(etudiant);
+        } else {
+          this.session.etudiants = this.session.etudiants.filter(p => p.id != etudiant.id);
+          this.session.candidats.push(etudiant);
+        }
       },
       error: err => {
         console.log(err);
