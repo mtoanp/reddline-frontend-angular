@@ -1,39 +1,59 @@
-<div class="catalogue">
-    
-<div *ngFor="let t1 of catalogue.subThemes" class="cata">
-    <div class="theme">
-        <div class="header">
-            <i class="bi bi-caret-down"></i> {{t1.id}} {{t1.nom}}
-        </div>
-        <div *ngFor="let t2 of t1.subThemes" class="cata">
-            <i class="bi bi-caret-down"></i> {{t2.id}} {{t2.nom}} 
-
-            <div *ngFor="let t3 of t2.subThemes" class="cata">
-                <i class="bi bi-caret-down"></i> {{t3.id}} {{t3.nom}}
-
-                <div *ngFor="let t4 of t3.subThemes" class="cata">
-                    <i class="bi bi-caret-down"></i> {{t4.id}} {{t4.nom}}
-                </div>
-
-                <div *ngFor="let formation of t3.formations" class="cata cata-formations">
-                    <div class="formations">
-                        <a (click)="handleShowFormation(formation)">
-                            {{formation.id}} {{formation.nom}}
-                        </a>
-                    </div>
-                </div>
+<div *ngIf="catalogue" class="catalogue">
+ 
+    <div *ngIf="catalogue.subThemes" class="themes">    
+        <div *ngFor="let t1 of catalogue.subThemes" class="cata">
+            <div class="header">
+                <i class="bi bi-caret-down"></i> {{t1.id}} {{t1.nom}}
             </div>
 
-            <div *ngFor="let formation of t2.formations" class="cata cata-formations">
+            <div *ngIf="t1.subThemes" class="themes"> 
+                <div *ngFor="let t2 of t1.subThemes" class="cata">
+                    <i class="bi bi-caret-down"></i> {{t2.id}} {{t2.nom}} 
+
+                    <div *ngIf="t2.subThemes" class="themes">
+                        <div *ngFor="let t3 of t2.subThemes" class="cata">
+                            <div class="theme">
+                            <i class="bi bi-caret-down"></i> {{t3.id}} {{t3.nom}}
+
+                            <div *ngIf="t3.subThemes" class="themes">
+                                <div *ngFor="let t4 of t3.subThemes" class="cata">
+                                    <div class="theme">
+                                        <i class="bi bi-caret-down"></i> {{t4.id}} {{t4.nom}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div *ngFor="let formation of t3.formations" class="cata cata-formations">
+                                <div class="formations">
+                                    <a (click)="handleShowFormation(formation)">
+                                        {{formation.id}} {{formation.nom}}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngFor="let formation of t2.formations" class="cata cata-formations">
+                        <div class="formations">
+                            <a (click)="handleShowFormation(formation)">
+                                {{formation.id}} {{formation.nom}}
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                </div>    
+            </div>    
+
+            <div *ngFor="let formation of t1.formations" class="cata cata-formations">
                 <div class="formations">
                     <a (click)="handleShowFormation(formation)">
                         {{formation.id}} {{formation.nom}}
                     </a>
                 </div>
             </div>
-        </div>    
+        </div>
 
-        <div *ngFor="let formation of t1.formations" class="cata cata-formations">
+        <div *ngFor="let formation of catalogue.formations" class="cata cata-formations">
             <div class="formations">
                 <a (click)="handleShowFormation(formation)">
                     {{formation.id}} {{formation.nom}}
@@ -41,14 +61,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<div *ngFor="let formation of catalogue.formations" class="cata cata-formations">
-    <div class="formations">
-        <a (click)="handleShowFormation(formation)">
-            {{formation.id}} {{formation.nom}}
-        </a>
-    </div>
-</div>
-
 </div>
