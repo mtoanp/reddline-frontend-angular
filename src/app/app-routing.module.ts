@@ -31,6 +31,7 @@ const routes: Routes = [
     {path: "home", component: HomeComponent},
     {path: "login", component: LoginComponent },
     {path: "catalogue", component: CatalogueComponent},
+    {path: "themeTree", component: ThemesComponent},
     {path: "formations", component: FormationsComponent},
     {path: "formations/:id", component: ShowFormationComponent},
     {path: "sessions/:id", component: ShowSessionComponent},

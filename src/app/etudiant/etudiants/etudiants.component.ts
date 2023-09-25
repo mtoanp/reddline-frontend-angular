@@ -31,13 +31,17 @@ export class EtudiantsComponent implements OnInit {
   getAll() {
     this.etudiantService.getAll().subscribe({
       next: data => {
-        console.log(data);
+        // console.log(data);
         this.etudiants = data;
       },
       error: err => {
         console.log(err);
       }
     })
+  }
+
+  handleShowEtudiant(etudiant:Etudiant) {
+    this.router.navigateByUrl(`api/admin/etudiants/${etudiant.id}`);
   }
 
   handleNewEtudiant() {
@@ -69,10 +73,6 @@ export class EtudiantsComponent implements OnInit {
         this.etudiants = data;
       }
     })
-  }
-
-  handleShowEtudiant(etudiant:Etudiant) {
-    this.router.navigateByUrl(`api/admin/etudiants/${etudiant.id}`);
   }
 
 }
