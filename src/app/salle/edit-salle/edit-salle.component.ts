@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SalleService } from 'src/app/service/salle.service';
+
 
 @Component({
   selector: 'app-edit-salle',
@@ -14,7 +15,9 @@ export class EditSalleComponent implements OnInit{
 
   constructor(private fb:FormBuilder, 
                 private service:SalleService, 
+                private router:Router,
                 private activateRoute:ActivatedRoute) {}
+                
 
     ngOnInit(): void {
       this.id = this.activateRoute.snapshot.params['id'];
@@ -40,6 +43,7 @@ export class EditSalleComponent implements OnInit{
         next: data => {
           // alert(JSON.stringify(data));
           console.log("updated");
+          this.router.navigateByUrl(`api/admin/salles/${salle.id}`);
         },
         error: err => {
           console.log(err);

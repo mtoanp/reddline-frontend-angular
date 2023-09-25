@@ -14,7 +14,7 @@ export class NewSalleComponent implements OnInit {
   ngOnInit(): void {
       this.formGroup = this.fb.group({
         nom: this.fb.control('', [Validators.required]),
-        prenom: this.fb.control('', [Validators.required])  // value init
+        capacite: this.fb.control('', [Validators.required])  // value init
       })
   }
 
