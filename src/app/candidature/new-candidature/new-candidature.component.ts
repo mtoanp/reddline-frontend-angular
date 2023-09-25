@@ -50,6 +50,7 @@ export class NewCandidatureComponent implements OnInit {
       console.log("Error: email already existed");
       return;
     }
+    // alert(JSON.stringify(etudiant));
 
     this.etudiantService.save(etudiant).subscribe({
       next: etudiant => {
