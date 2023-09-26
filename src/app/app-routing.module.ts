@@ -25,6 +25,7 @@ import { ContactezNousComponent } from './public/contactez-nous/contactez-nous.c
 import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
 import { NewSalleComponent } from './salle/new-salle/new-salle.component';
 import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
+import { FeedbackComponent } from './layout/feedback/feedback.component';
 
 const routes: Routes = [
   {path: "api", children: [
@@ -39,6 +40,8 @@ const routes: Routes = [
     {path: "newCandidature/:session_id", component: NewCandidatureComponent},
     {path: "qui-sommes-nous", component: QuiSommesNousComponent},
     {path: "contactez-nous", component: ContactezNousComponent},
+    {path: "feedback", component: FeedbackComponent},
+    // {path: "feedback", component: FeedbackComponent, outlet: "feedback"},
   
     {path: "admin", component: AdminTemplateComponent, children: [
       {path: "themes", component: ThemesComponent},

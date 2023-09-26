@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Candidature } from 'src/app/model/candidature.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
+import { AppStateService } from 'src/app/service/app-state.service';
 import { CandidatureService } from 'src/app/service/candidature.service';
 import { EtudiantService } from 'src/app/service/etudiant.service';
 import { SessionService } from 'src/app/service/session.service';
@@ -20,7 +21,8 @@ export class NewCandidatureComponent implements OnInit {
                 private candidatureService:CandidatureService,
                 private etudiantService:EtudiantService,
                 private activateRoute:ActivatedRoute,
-                private router:Router
+                private router:Router,
+                private appState : AppStateService
   ) {}
 
   formGroup!:FormGroup;
@@ -82,8 +84,10 @@ export class NewCandidatureComponent implements OnInit {
 
   showMessage(msg:any) {
     if(msg) {
-      // console.log(msg);
-      this.router.navigate(['api/message', {msg: msg}]);
+      this.appState.setMessage(msg);
+      console.log(msg);
+      // this.router.navigate(['api/feedback']);
+      // this.router.navigate(['api/feedback', {msg: msg}]);
     }
   }
 }

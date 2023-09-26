@@ -35,6 +35,7 @@ import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
 import { NewSalleComponent } from './salle/new-salle/new-salle.component';
 import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
 import { ThemeTreeComponent } from './theme/theme-tree/theme-tree.component';
+import { FeedbackComponent } from './layout/feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { ThemeTreeComponent } from './theme/theme-tree/theme-tree.component';
     EditSalleComponent,
     NewSalleComponent,
     ShowSalleComponent,
-    ThemeTreeComponent
+    ThemeTreeComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
