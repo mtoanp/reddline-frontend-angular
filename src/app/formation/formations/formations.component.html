@@ -44,8 +44,8 @@
                                 {{formation.id}}
                             </a>
                         </td>
-                        <td>{{formation.nom}}</td>
-                        <td>{{formation.prix}} €</td>
+                        <td  (click)="handleShowFormation(formation)">{{formation.nom}}</td>
+                        <td  (click)="handleShowFormation(formation)">{{formation.prix}} €</td>
                         <td *ngIf="authService.isAdmin()">
                             <button
                                 (click)="handleEditFormation(formation)"

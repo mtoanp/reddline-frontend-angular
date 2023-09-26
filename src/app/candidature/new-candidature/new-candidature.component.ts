@@ -48,7 +48,8 @@ export class NewCandidatureComponent implements OnInit {
     let etudiant = this.formGroup.value;
     // console.log(this.session.candidats.find((element) => element.email === etudiant.email));
     if(this.session.candidats.find((element) => element.email === etudiant.email)) {
-      console.log("Error: email already existed");
+      // console.log("Error: email already existed");
+      this.showMessage("Error: email already existed");
       return;
     }
     // alert(JSON.stringify(etudiant));
@@ -77,5 +78,12 @@ export class NewCandidatureComponent implements OnInit {
       }
     })
     // console.warn(JSON.stringify(candidature));
+  }
+
+  showMessage(msg:any) {
+    if(msg) {
+      // console.log(msg);
+      this.router.navigate(['api/message', {msg: msg}]);
+    }
   }
 }
