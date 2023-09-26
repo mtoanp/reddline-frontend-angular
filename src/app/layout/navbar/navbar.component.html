@@ -1,47 +1,66 @@
-<nav class="p-3 d-flex justify-content-between">
-    <ul class="nav nav-pills">
-        <li *ngFor="let action of publicActions">
-            <button 
-                    (click) = "setCurrentAction(action)"
-                    routerLink="{{action.route}}"
-                    [class]="action == currentAction ? 'btn btn-success ms-1' : 'btn btn-outline-success ms-1' "
-                >
-                {{action.title}}     
-                <i class="bi bi-{{action.icon}} text-success"></i>
-            </button>
-        </li>
-    </ul>
+<!-- Navbar Start -->
+<div class="container-fluid" style="background-color: #3e4551">
+  <nav class="navbar navbar-dark navbar-expand- py-0">
+    <a href="api/home" class="navbar-brand">
+      <h1 class="text-white fw-bold d-block">
+        IT<span class="text-secondary">Training</span>
+      </h1>
+    </a>
+  
+    <a *ngFor="let action of publicActions">
+      <button
+        (click)="setCurrentAction(action)"
+        routerLink="{{ action.route }}"
+        [class]="
+          action == currentAction
+            ? 'nav-item nav-link active text-secondary'
+            : 'nav-item nav-link active text-secondary'
+        "
+      >
+        {{ action.title }}
+        <i class="bi bi-{{ action.icon }} text-secondary"></i>
+      </button>
+    </a>
 
     <ul class="nav nav-pills" *ngIf="authService.isAuthenticated()">
-        <li *ngFor="let action of adminActions">
-            <button 
-                    (click) = "setCurrentAction(action)"
-                    routerLink="{{action.route}}"
-                    [class]="action == currentAction ? 'btn btn-info ms-1' : 'btn btn-outline-info ms-1' "
-            >
-                {{action.title}}     
-                <i class="bi bi-{{action.icon}} text-success"></i>
-            </button>
-        </li>
+      <li *ngFor="let action of adminActions">
+        <button
+          (click)="setCurrentAction(action)"
+          routerLink="{{ action.route }}"
+          [class]="
+            action == currentAction
+              ? 'btn btn-info ms-1'
+              : 'btn btn-outline-info ms-1'
+          "
+        >
+          {{ action.title }}
+          <i class="bi bi-{{ action.icon }} text-text-secondary"></i>
+        </button>
+      </li>
     </ul>
+    <div class="d-none d-xl-flex">
+      
 
-    <!-- <ul *ngIf="authService.isAuthenticated()" class="nav nav-pills"> -->
-    <ul class="nav nav-pills">
-        <li *ngIf="authService.isAuthenticated()">
-          <!-- {{authService.authenticatedUser!.username}} -->
-          {{appState.authState.username}}
-          <button class="btn btn-success" (click)="logout()">Logout</button>
-        </li>
-        <li *ngIf="!authService.isAuthenticated()">
-          <button class="btn btn-success" (click)="login()">Login</button>
-        </li>
+      <!-- <ul *ngIf="authService.isAuthenticated()" class="nav nav-pills"> -->
 
-        <!-- <li *ngIf="appState.authState.isAuthenticated">
+      <a *ngIf="authService.isAuthenticated()">
+        <!-- {{authService.authenticatedUser!.username}} -->
+        {{ appState.authState.username }}
+        <button class="btn btn-secondary" (click)="logout()">Logout</button>
+      </a>
+      <a *ngIf="!authService.isAuthenticated()">
+        <button class="btn btn-secondary" (click)="login()">Login</button>
+      </a>
+
+      <!-- <li *ngIf="appState.authState.isAuthenticated">
           {{appState.authState.username}}
           <button class="btn btn-success" (click)="logout()">Logout</button>
         </li>
         <li *ngIf="!appState.authState.isAuthenticated">
           <button class="btn btn-success" (click)="login()">Login</button>
         </li> -->
-    </ul>
-</nav>
+    </div>
+  </nav>
+</div>
+
+<!-- Navbar End -->
