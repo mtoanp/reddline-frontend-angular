@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Candidature } from 'src/app/model/candidature.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
+import { AppStateService } from 'src/app/service/app-state.service';
 import { CandidatureService } from 'src/app/service/candidature.service';
 import { EtudiantService } from 'src/app/service/etudiant.service';
 import { SessionService } from 'src/app/service/session.service';
@@ -19,7 +20,9 @@ export class NewCandidatureComponent implements OnInit {
                 private sessionService:SessionService,
                 private candidatureService:CandidatureService,
                 private etudiantService:EtudiantService,
-                private activateRoute:ActivatedRoute
+                private activateRoute:ActivatedRoute,
+                private router:Router,
+                private appState : AppStateService
   ) {}
 
   formGroup!:FormGroup;
@@ -47,7 +50,8 @@ export class NewCandidatureComponent implements OnInit {
     let etudiant = this.formGroup.value;
     // console.log(this.session.candidats.find((element) => element.email === etudiant.email));
     if(this.session.candidats.find((element) => element.email === etudiant.email)) {
-      console.log("Error: email already existed");
+      // console.log("Error: email already existed");
+      this.showMessage("Error: email already existed");
       return;
     }
     // alert(JSON.stringify(etudiant));
@@ -63,6 +67,7 @@ export class NewCandidatureComponent implements OnInit {
         this.candidatureService.save(candidature).subscribe({
           next: data => {
             // alert(JSON.stringify(data));
+            this.router.navigateByUrl(`api/sessions/${this.session.id}`);
           },
           error: err => {
             console.log(err);
@@ -75,5 +80,14 @@ export class NewCandidatureComponent implements OnInit {
       }
     })
     // console.warn(JSON.stringify(candidature));
+  }
+
+  showMessage(msg:any) {
+    if(msg) {
+      this.appState.setMessage(msg);
+      console.log(msg);
+      // this.router.navigate(['api/feedback']);
+      // this.router.navigate(['api/feedback', {msg: msg}]);
+    }
   }
 }

@@ -11,8 +11,8 @@
                     {{session.id}}   
                 </a>
             </td>
-            <td>{{session.dateDeDebut}}</td>
-            <td>{{session.dateDeFin}}</td>
+            <td (click)="handleShowSession(session)">{{session.dateDeDebut | date:'dd/MM/yyyy'}}</td>
+            <td (click)="handleShowSession(session)">{{session.dateDeFin | date:'dd/MM/yyyy'}}</td>
             <td> {{session.capacite}}</td>
 
             <td *ngIf="authService.isAdmin()">
