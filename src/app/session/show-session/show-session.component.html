@@ -1,3 +1,9 @@
+<div *ngIf="feedback" class="feedback-holder">
+    <div class="alert alert-success ml-3 mr-3 text-center">
+        {{feedback}}
+    </div>
+</div>
+
 <div class="session p-3">
     <div *ngIf="session && formation" class="card" >
         <div class="card-header d-flex justify-content-between">
@@ -16,7 +22,7 @@
             <div *ngIf="authService.isAdmin()" class="session-candidatures d-flex justify-content-between row">
                 <div class="candidats col-6">
                     <div class="card">
-                        <div class="card-header">Candidats</div>
+                        <div class="card-header"><h3>Candidats</h3></div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
@@ -58,7 +64,7 @@
 
                 <div class="etudiants col-6">
                     <div class="card">
-                        <div class="card-header">Etudiants</div>
+                        <div class="card-header"><h3>Etudiants</h3></div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>

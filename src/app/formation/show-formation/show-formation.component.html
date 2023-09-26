@@ -4,13 +4,17 @@
             <h3>Formation: {{formation.id}} - {{formation.nom}}</h3>
             <button *ngIf="authService.isAdmin()" class="btn btn-outline-success">Nouveau Session</button>
         </div>
+
         <div class="card-body">
-            <div class="formation-description font-italic">
-                Description:
-                {{formation.description}}
-            </div>
-            <div class="mt-3 d-flex justify-content-between">
-                <app-sessions></app-sessions>
+            <div class="row">
+                <div class="col-6 formation-description font-italic p-3">
+                    <h4>Description:</h4>
+                    <p class="description">{{formation.description}}</p>
+                </div>
+                <!-- <div class="col-1"></div> -->
+                <div class="col-6 sessions">
+                    <app-sessions></app-sessions>
+                </div>
             </div>
         </div>
     </div>                   

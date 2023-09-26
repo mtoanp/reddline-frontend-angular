@@ -13,19 +13,10 @@ export class FeedbackComponent implements OnInit {
   feedback:any;
   ngOnInit(): void {
     this.feedback = this.getFeedback();
-    console.log(this.feedback);
-    // this.feedback = this.appState.msg;
-    // this.feedback = this.activateRoute.snapshot.params['msg'];
-    // console.log(this.activateRoute.snapshot.params['msg']);
-    // console.log(this.activateRoute.snapshot.queryParamMap.get('msg'));
-    // console.log(this.feedback);
-    // this.getMessage();
   }
 
   getFeedback(): Observable<any> {
-    // return this.feedback.asObservable();   
-    // return this.feedback.asObservable();
-    return of(this.appState.msg);
+    return of(this.appState.feedback);
   }
 
   

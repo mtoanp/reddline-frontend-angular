@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AppStateService {
-  public msg:any;
+  public feedback:any;
   public authState:any = {
     isAuthenticated : false,
     username : undefined,
@@ -17,7 +17,7 @@ export class AppStateService {
     this.authState = {...this.authState, ...state};
   }
 
-  public setFeedback(msg : any) :void {
-    this.msg = msg;
+  public setFeedback(feedback : any) :void {
+    this.feedback = feedback;
   }
 }

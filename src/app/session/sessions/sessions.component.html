@@ -1,7 +1,7 @@
 <table *ngIf="sessions" class="table">
     <thead>
         <tr>
-            <th>Session</th> <th>Date debut</th> <th>Date fin</th> <th>Capacité</th> <th>Actions</th>
+            <th>Session</th> <th>Date debut</th> <th>Date fin</th> <th>Capacité</th> <th *ngIf="authService.isAdmin()">Actions</th>
         </tr>
     </thead>
     <tbody>

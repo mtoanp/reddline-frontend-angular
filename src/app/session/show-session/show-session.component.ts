@@ -4,6 +4,7 @@ import { Candidature } from 'src/app/model/candidature.model';
 import { Etudiant } from 'src/app/model/etudiant.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
+import { AppStateService } from 'src/app/service/app-state.service';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { CandidatureService } from 'src/app/service/candidature.service';
 import { FormationService } from 'src/app/service/formation.service';
@@ -19,6 +20,7 @@ export class ShowSessionComponent implements OnInit {
   session!: Session;
   // sessions:Session[] = [];
   id!: number;
+  feedback!:any;
   // candidature!:Candidature;
 
   constructor(
@@ -27,10 +29,12 @@ export class ShowSessionComponent implements OnInit {
     private candidatureService: CandidatureService,
     public authService: AuthenticationService,
     private activateRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private appState : AppStateService
   ) {}
 
   ngOnInit(): void {
+    this.getFeedback();
     this.id = this.activateRoute.snapshot.params['id'];
     this.sessionService.getById(this.id).subscribe({
       next: (session) => {
@@ -114,14 +118,14 @@ export class ShowSessionComponent implements OnInit {
     candidature.idSession = this.session.id;
     candidature.idEtudiant = idEtudiant;
     candidature.valide = valide;
-
-    // let candidature:Candidature = new Candidature(
-    //   this.session.id,
-    //   idEtudiant,
-    //   valide
-    // );  // Candidature as class
-
-    // alert(JSON.stringify(candidature));
     return candidature;
+  }
+
+  getFeedback() {
+    this.feedback = this.appState.feedback;
+    setTimeout(() => {
+      this.appState.setFeedback("");
+      this.feedback = "";
+    }, 4000);
   }
 }

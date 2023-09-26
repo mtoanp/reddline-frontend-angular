@@ -28,6 +28,7 @@ export class NewCandidatureComponent implements OnInit {
   formGroup!:FormGroup;
   formation!:Formation;
   session!:Session;
+  errorMsg!:any;
 
   ngOnInit(): void {
     this.sessionService.getById(this.activateRoute.snapshot.params['session_id']).subscribe({
@@ -50,15 +51,15 @@ export class NewCandidatureComponent implements OnInit {
     let etudiant = this.formGroup.value;
     // console.log(this.session.candidats.find((element) => element.email === etudiant.email));
     if(this.session.candidats.find((element) => element.email === etudiant.email)) {
-      // console.log("Error: email already existed");
-      this.showMessage("Error: email already existed");
+      // this.errorMsg = "Error: email already existed";
+      this.showError("Error: email already existed");
       return;
     }
     // alert(JSON.stringify(etudiant));
 
     this.etudiantService.save(etudiant).subscribe({
       next: etudiant => {
-        alert(JSON.stringify(etudiant));
+        // alert(JSON.stringify(etudiant));
         let candidature:Candidature = new Candidature();  // Candidature as class
         candidature.idSession = this.session.id;
         candidature.idEtudiant = etudiant.id;
@@ -67,10 +68,12 @@ export class NewCandidatureComponent implements OnInit {
         this.candidatureService.save(candidature).subscribe({
           next: data => {
             // alert(JSON.stringify(data));
+            this.appState.setFeedback("Votre Candidature est bien enregistré");
             this.router.navigateByUrl(`api/sessions/${this.session.id}`);
           },
           error: err => {
-            console.log(err);
+            // this.errorMsg = err;
+            this.showError(err);
           }
         })
       },
@@ -82,12 +85,10 @@ export class NewCandidatureComponent implements OnInit {
     // console.warn(JSON.stringify(candidature));
   }
 
-  showMessage(msg:any) {
-    if(msg) {
-      this.appState.setFeedback(msg);
-      // console.log(this.appState.msg);
-      // this.router.navigate(['api/feedback']);
-      // this.router.navigate(['api/feedback', {msg: msg}]);
-    }
+  showError(err:any) {
+    this.errorMsg = err;
+    setTimeout(() => {
+      this.errorMsg = "";
+    }, 3000);
   }
 }

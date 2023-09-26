@@ -4,18 +4,18 @@
             <div class="card-title d-flex justify-content-between">
                 <h3 class="mt-2">Catalogue</h3>
                 <div class="actions">
-                    <button *ngIf="authService.isAdmin()" class="btn btn-outline-success mt-2 mr-2"
+                    <button *ngIf="authService.isAdmin()" class="btn btn-success mt-2 mr-2"
                         (click)="handleNewFormation()"
-                    >Add New</button>
+                    >+ Nouveau Formation</button>
                     <button class="btn btn-outline-success mt-2 mr-2"
                         routerLink="/api/catalogue"
                     >
-                        Tree
+                        Arbre des Thèmes
                     </button>
                     <button class="btn btn-outline-info mt-2 ml-1"
                         routerLink="/api/formations"
                     >
-                        List
+                        List des Formations
                     </button>
                 </div>
             </div>

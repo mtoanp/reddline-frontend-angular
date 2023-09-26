@@ -10,7 +10,7 @@ import { AuthenticationService } from 'src/app/service/authentication.service';
 })
 export class LoginComponent implements OnInit{
   userFormGroup!:FormGroup;
-  errorMessage:any;
+  errorMsg:any;
 
   constructor ( private fb : FormBuilder,
                 private authService : AuthenticationService,
@@ -34,7 +34,16 @@ export class LoginComponent implements OnInit{
           next: (data: any) => {this.router.navigateByUrl("/api/admin");}  
         })
       }, 
-      error: (err: any) => {this.errorMessage = err; } 
+      error: (err: any) => {
+        this.showError(err);
+      } 
     });
+  }
+
+  showError(err:any) {
+    this.errorMsg = err;
+    setTimeout(() => {
+      this.errorMsg = "";
+    }, 3000);
   }
 }
