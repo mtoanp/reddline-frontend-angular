@@ -1,2 +1,22 @@
 // @import "bootstrap-icons/font/bootstrap-icons.css";
 
+.feedback-holder {
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    width: 40rem;
+    top: 70px;
+    z-index: 99;
+}
+
+.mid-form {
+    max-width: 600px;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+

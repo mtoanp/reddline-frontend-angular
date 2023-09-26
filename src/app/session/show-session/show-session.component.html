@@ -1,8 +1,16 @@
+<div *ngIf="feedback" class="feedback-holder">
+    <div class="alert alert-success ml-3 mr-3 text-center">
+        {{feedback}}
+    </div>
+</div>
+
 <div class="session p-3">
     <div *ngIf="session && formation" class="card" >
         <div class="card-header d-flex justify-content-between">
-            <h3>Formation {{formation.nom}} | Session {{session.id}} | ( {{session.dateDeDebut}} - {{session.dateDeFin}})</h3>
-            <h3>{{session.nbEtudiants}} / {{session.capacite}}</h3>
+            <h3>Formation {{formation.nom}} | Session {{session.id}} | 
+                ( {{session.dateDeDebut | date:'dd/MM/yyyy'}} - {{session.dateDeFin | date:'dd/MM/yyyy'}})</h3>
+            <h3>{{session.etudiants.length}} / {{session.capacite}}</h3>
+            <!-- {{session.nbEtudiants}} -->
         </div>
         
         <div class="card-body">
@@ -14,19 +22,21 @@
             <div *ngIf="authService.isAdmin()" class="session-candidatures d-flex justify-content-between row">
                 <div class="candidats col-6">
                     <div class="card">
-                        <div class="card-header">Candidats</div>
+                        <div class="card-header"><h3>Candidats</h3></div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <!-- <th>id</th> <th>nom</th> <th>prenom</th> <th>actions</th> -->
+                                        <th>Id</th> <th>Nom</th> <th>Prenom</th> <th>Email</th> <th>Actions</th>
                                     </tr>
                                 </thead>
+
                                 <tbody *ngFor="let c of session.candidats">
                                 <tr>
-                                    <td>{{c.id}}</td> 
-                                    <td>{{c.nom}}</td> 
-                                    <td>{{c.prenom}}</td>                                    
+                                    <td (click)="showUser(c)">{{c.id}}</td> 
+                                    <td (click)="showUser(c)">{{c.nom}}</td> 
+                                    <td (click)="showUser(c)">{{c.prenom}}</td>      
+                                    <td (click)="showUser(c)">{{c.email}}</td> 
                                     <td>
                                         <button
                                             (click)="updateCandidature(c, true)"
@@ -35,6 +45,7 @@
                                             <i class="bi bi-check"></i>
                                         </button>
                                     </td>
+
                                     <td>
                                         <button
                                             (click)="deleteCandidature(c)"
@@ -43,6 +54,7 @@
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </td>
+
                                 </tr>
                                 </tbody>
                             </table>
@@ -52,19 +64,21 @@
 
                 <div class="etudiants col-6">
                     <div class="card">
-                        <div class="card-header">Etudiants</div>
+                        <div class="card-header"><h3>Etudiants</h3></div>
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <!-- <th>id</th> <th>nom</th> <th>prenom</th> <th>actions</th> -->
+                                        <th>Id</th> <th>Nom</th> <th>Prenom</th> <th>Email</th> <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody *ngFor="let c of session.etudiants">
                                 <tr>
-                                    <td>{{c.id}}</td> 
-                                    <td>{{c.nom}}</td> 
-                                    <td>{{c.prenom}}</td>               
+                                    <td (click)="showUser(c)">{{c.id}}</td> 
+                                    <td (click)="showUser(c)">{{c.nom}}</td> 
+                                    <td (click)="showUser(c)">{{c.prenom}}</td>   
+                                    <td (click)="showUser(c)">{{c.email}}</td>
+
                                     <td>
                                         <button
                                             (click)="updateCandidature(c, false)"
@@ -73,6 +87,7 @@
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </td>
+
                                 </tr>
                                 </tbody>
                             </table>
@@ -83,3 +98,6 @@
         </div>
     </div>                   
 </div>  
+
+<a routerLink="/api/formations/" ><i class="bi bi-arrow-left"> Retour</i></a>
+<!-- {{session.id}} -->

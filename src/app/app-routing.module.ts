@@ -20,17 +20,28 @@ import { SessionsComponent } from './session/sessions/sessions.component';
 import { ShowSessionComponent } from './session/show-session/show-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
 import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
+import { QuiSommesNousComponent } from './public/qui-sommes-nous/qui-sommes-nous.component';
+import { ContactezNousComponent } from './public/contactez-nous/contactez-nous.component';
+import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
+import { NewSalleComponent } from './salle/new-salle/new-salle.component';
+import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
+import { FeedbackComponent } from './layout/feedback/feedback.component';
 
 const routes: Routes = [
   {path: "api", children: [
     {path: "home", component: HomeComponent},
     {path: "login", component: LoginComponent },
     {path: "catalogue", component: CatalogueComponent},
+    {path: "themeTree", component: ThemesComponent},
     {path: "formations", component: FormationsComponent},
     {path: "formations/:id", component: ShowFormationComponent},
     {path: "sessions/:id", component: ShowSessionComponent},
     {path: "coursList/:session_id", component: CoursComponent},
     {path: "newCandidature/:session_id", component: NewCandidatureComponent},
+    {path: "qui-sommes-nous", component: QuiSommesNousComponent},
+    {path: "contactez-nous", component: ContactezNousComponent},
+    {path: "feedback", component: FeedbackComponent},
+    // {path: "feedback", component: FeedbackComponent, outlet: "feedback"},
   
     {path: "admin", component: AdminTemplateComponent, children: [
       {path: "themes", component: ThemesComponent},
@@ -50,7 +61,12 @@ const routes: Routes = [
       {path: "newEtudiant", component: NewEtudiantComponent},
       {path: "editEtudiant/:id", component: EditEtudiantComponent},
 
-      {path: "salles", component: SallesComponent}
+      {path: "salles", component: SallesComponent},
+      {path: "salles/:id", component: ShowSalleComponent},
+      {path: "newSalle", component: NewSalleComponent},
+      {path: "editSalle/:id", component: EditSalleComponent}
+
+     
     ]}
   ]}
 ]

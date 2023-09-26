@@ -1,12 +1,15 @@
 <div class="p-3">
     <div class="card">
         <div class="card-header">
-            Show Etudiant
+            <div class="card-title">
+                <!-- <div *ngIf="etudiant" class="d-flex justify-content-between"> -->
+                    <h4>Etudiant: {{etudiant.nom}} {{etudiant.prenom}}</h4>
+                <!-- </div> -->
+            </div>
         </div>
         <div class="card-body">
-            <div *ngIf="etudiant" class="d-flex justify-content-between">
-                {{etudiant.id}} {{etudiant.nom}} {{etudiant.prenom}}
-            </div>
+            <h4>Formations participés:</h4>
+
         </div>
     </div>                   
 </div>  

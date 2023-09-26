@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Formation } from 'src/app/model/formation.model';
 import { Theme } from 'src/app/model/theme.model';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({
@@ -9,9 +12,10 @@ import { ThemeService } from 'src/app/service/theme.service';
 })
 export class CatalogueComponent {
   catalogue!:Theme;
-  // catalogue!:any;
 
-  constructor(private themeService:ThemeService) {}
+  constructor(private themeService:ThemeService, 
+    public authService:AuthenticationService,
+    private router:Router) {}
   
   ngOnInit(): void {
       this.getCatalogue();
@@ -20,14 +24,20 @@ export class CatalogueComponent {
   getCatalogue() {
     this.themeService.getCatalogue().subscribe({
       next: data => {
-        // console.log(data);
         // console.log(JSON.stringify(data));
         this.catalogue = data;
-        // console.log(this.catalogue.id);
       },
       error: err => {
         console.log(err);
       }
     })
+  }
+
+  handleShowFormation(formation:Formation) {
+    this.router.navigateByUrl(`api/formations/${formation.id}`);
+  }
+
+  handleNewFormation() {
+    this.router.navigateByUrl("api/admin/newFormation");
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormationService } from 'src/app/service/formation.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class EditFormationComponent {
 
   constructor(private fb:FormBuilder, 
               private service:FormationService, 
-              private activateRoute:ActivatedRoute) {}
+              private activateRoute:ActivatedRoute,
+              private router:Router) {}
 
   ngOnInit(): void {
     this.id = this.activateRoute.snapshot.params['id'];
@@ -23,7 +24,9 @@ export class EditFormationComponent {
         // console.log(formation);
         this.formGroup = this.fb.group({
           id: this.fb.control(formation.id),
-          nom: this.fb.control(formation.nom, [Validators.required])  // value init
+          nom: this.fb.control(formation.nom, [Validators.required]),  // value init
+          description: this.fb.control(formation.description, [Validators.required]), // value init
+          prix: this.fb.control(formation.prix, [Validators.required])  // value init
         })
       }, 
       error: err => {
@@ -38,6 +41,7 @@ export class EditFormationComponent {
       next: data => {
         // alert(JSON.stringify(data));
         console.log("updated");
+        this.router.navigateByUrl(`api/formations`);
       },
       error: err => {
         console.log(err);

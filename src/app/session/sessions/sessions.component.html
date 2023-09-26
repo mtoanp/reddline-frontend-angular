@@ -1,7 +1,7 @@
 <table *ngIf="sessions" class="table">
     <thead>
         <tr>
-            <th>Session</th> <th>Date debut</th> <th>Date fin</th> <th>Capacité</th> <th>Actions</th>
+            <th>Session</th> <th>Date debut</th> <th>Date fin</th> <th>Capacité</th> <th *ngIf="authService.isAdmin()">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -11,10 +11,10 @@
                     {{session.id}}   
                 </a>
             </td>
-            <td>{{session.dateDeDebut}}</td>
-            <td>{{session.dateDeFin}}</td>
-            <td>{{session.nbEtudiants}} / {{session.capacite}}</td>
-            <!-- <td>{{session.nom}}</td> -->
+            <td (click)="handleShowSession(session)">{{session.dateDeDebut | date:'dd/MM/yyyy'}}</td>
+            <td (click)="handleShowSession(session)">{{session.dateDeFin | date:'dd/MM/yyyy'}}</td>
+            <td> {{session.capacite}}</td>
+
             <td *ngIf="authService.isAdmin()">
                 <button
                     (click)="handleEditSession(session)"

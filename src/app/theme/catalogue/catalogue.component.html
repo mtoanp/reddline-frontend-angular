@@ -1,25 +1,30 @@
-<div class="p-3">
+<section *ngIf="catalogue" class="p-3">
     <div class="card">
-        <div class="card-body">
-            <div *ngIf="catalogue" class="card-body">
-                {{catalogue}} <br>
-                {{catalogue.id}} {{catalogue.nom}}
-                <hr>
-
-                sub themes:<br>
-                <div *ngFor="let theme of catalogue.subThemes" class="">
-                    {{theme.id}} {{theme.nom}} -- sub: 
-                    <div *ngFor="let theme1 of theme.subThemes" class="">
-                        {{theme1.id}} {{theme1.nom}}
-                    </div>
-                </div>
-          
-                <hr>
-                formations:<br>
-                <div *ngFor="let formation of catalogue.formations" class="">
-                    {{formation.id}} {{formation.nom}}
+        <div class="card-header">
+            <div class="card-title d-flex justify-content-between">
+                <h3 class="mt-2">Catalogue</h3>
+                <div class="actions">
+                    <button *ngIf="authService.isAdmin()" class="btn btn-success mt-2 mr-2"
+                        (click)="handleNewFormation()"
+                    >+ Nouveau Formation</button>
+                    <button class="btn btn-outline-success mt-2 mr-2"
+                        routerLink="/api/catalogue"
+                    >
+                        Arbre des Thèmes
+                    </button>
+                    <button class="btn btn-outline-info mt-2 ml-1"
+                        routerLink="/api/formations"
+                    >
+                        List des Formations
+                    </button>
                 </div>
             </div>
         </div>
+        <div class="card-body">
+
+            <!-- <app-formations></app-formations> -->
+            <app-theme-tree></app-theme-tree>
+
+        </div>
     </div>   
-</div>   
+</section>   

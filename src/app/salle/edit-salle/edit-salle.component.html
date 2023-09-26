@@ -1,0 +1,19 @@
+<p>edit-salle works!</p>
+<div class="p-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6" *ngIf="formGroup">
+                    <form [formGroup]="formGroup" (ngSubmit)="updateSalle()" >
+                        <div class="mb-3">
+                            <label for="" class="form-label">Nom</label>
+                            <input type="text" class="form-control" formControlName="nom">
+                        </div>
+                        <button [disabled]="formGroup.invalid" class="btn btn-success">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- {{formGroup.value | json}} -->
