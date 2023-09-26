@@ -13,8 +13,8 @@
             </td>
             <td>{{session.dateDeDebut}}</td>
             <td>{{session.dateDeFin}}</td>
-            <td>{{session.nbEtudiants}} / {{session.capacite}}</td>
-            <!-- <td>{{session.nom}}</td> -->
+            <td> {{session.capacite}}</td>
+
             <td *ngIf="authService.isAdmin()">
                 <button
                     (click)="handleEditSession(session)"

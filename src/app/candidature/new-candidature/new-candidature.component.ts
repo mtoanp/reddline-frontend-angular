@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Candidature } from 'src/app/model/candidature.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
+import { CandidatureService } from 'src/app/service/candidature.service';
 import { EtudiantService } from 'src/app/service/etudiant.service';
 import { SessionService } from 'src/app/service/session.service';
 
@@ -15,6 +17,8 @@ export class NewCandidatureComponent implements OnInit {
   
   constructor(  private fb:FormBuilder, 
                 private sessionService:SessionService,
+                private candidatureService:CandidatureService,
+                private etudiantService:EtudiantService,
                 private activateRoute:ActivatedRoute
   ) {}
 
@@ -40,15 +44,36 @@ export class NewCandidatureComponent implements OnInit {
   }
 
   saveCandidature() {
-    let candidature = this.formGroup.value;
-    alert(JSON.stringify(candidature));
-    // this.service.save(candidature).subscribe({
-    //   next: data => {
-        // alert(JSON.stringify(data));
-      // },
-      // error: err => {
-      //   console.log(err);
-      // }
-    // })
+    let etudiant = this.formGroup.value;
+    // console.log(this.session.candidats.find((element) => element.email === etudiant.email));
+    if(this.session.candidats.find((element) => element.email === etudiant.email)) {
+      console.log("Error: email already existed");
+      return;
+    }
+    // alert(JSON.stringify(etudiant));
+
+    this.etudiantService.save(etudiant).subscribe({
+      next: etudiant => {
+        alert(JSON.stringify(etudiant));
+        let candidature:Candidature = new Candidature();  // Candidature as class
+        candidature.idSession = this.session.id;
+        candidature.idEtudiant = etudiant.id;
+        candidature.valide = false;
+
+        this.candidatureService.save(candidature).subscribe({
+          next: data => {
+            // alert(JSON.stringify(data));
+          },
+          error: err => {
+            console.log(err);
+          }
+        })
+      },
+
+      error: err => {
+        console.log(err);
+      }
+    })
+    // console.warn(JSON.stringify(candidature));
   }
 }

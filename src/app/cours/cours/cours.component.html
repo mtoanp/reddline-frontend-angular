@@ -1,7 +1,7 @@
 <div class="session p-3">
     <div *ngIf="session" class="card" >
         <div class="card-header d-flex justify-content-between">
-            <h3>Session {{session.id}} | ( {{session.dateDeDebut}} - {{session.dateDeFin}})</h3>
+            <h3>Formation {{session.formation.nom}} | Session {{session.id}} | ( {{session.dateDeDebut}} - {{session.dateDeFin}})</h3>
             <button *ngIf="authService.isAdmin()" class="btn btn-outline-success">Nouveau Cours</button>
         </div>
 
@@ -9,15 +9,17 @@
             <table *ngIf="coursList" class="table">
                 <thead>
                     <tr>
-                        <th>id</th> <th>matiere</th> <th>salle</th> <th>actions</th>
+                        <th>id</th> <th>Date</th> <th>Matiere</th> <th>Salle</th> <th>Professeur</th>
                     </tr>
                 </thead>
 
                 <tbody *ngFor="let c of coursList">
                     <tr>
                         <td>{{c.id}}</td> 
-                        <td>{{c.matiere}}</td> 
-                        <td>{{c.salle}}</td> 
+                        <td>{{c.date}}</td> 
+                        <td>{{c.matiere.nom}}</td> 
+                        <td>{{c.salle.nom}}</td> 
+                        <td>{{c.professeur.nom}}</td> 
                         <td *ngIf="authService.isAdmin()"><button class="btn btn-outline-success">Modifier</button></td>
                         <td *ngIf="authService.isAdmin()"><button class="btn btn-outline-danger">Suprimer</button></td>
                     </tr>

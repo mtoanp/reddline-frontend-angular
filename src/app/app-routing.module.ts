@@ -20,8 +20,8 @@ import { SessionsComponent } from './session/sessions/sessions.component';
 import { ShowSessionComponent } from './session/show-session/show-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
 import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
-import { QuiSommesNousComponent } from './qui-sommes-nous/qui-sommes-nous.component';
-import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
+import { QuiSommesNousComponent } from './public/qui-sommes-nous/qui-sommes-nous.component';
+import { ContactezNousComponent } from './public/contactez-nous/contactez-nous.component';
 import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
 import { NewSalleComponent } from './salle/new-salle/new-salle.component';
 import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
@@ -31,6 +31,7 @@ const routes: Routes = [
     {path: "home", component: HomeComponent},
     {path: "login", component: LoginComponent },
     {path: "catalogue", component: CatalogueComponent},
+    {path: "themeTree", component: ThemesComponent},
     {path: "formations", component: FormationsComponent},
     {path: "formations/:id", component: ShowFormationComponent},
     {path: "sessions/:id", component: ShowSessionComponent},

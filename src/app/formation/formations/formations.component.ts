@@ -30,13 +30,17 @@ export class FormationsComponent implements OnInit {
   getAll() {
     this.formationService.getAll().subscribe({
       next: data => {
-        console.log(data);
+        // console.log(data);
         this.formations = data;
       },
       error: err => {
         console.log(err);
       }
     })
+  }
+
+  handleShowFormation(formation:Formation) {
+    this.router.navigateByUrl(`api/formations/${formation.id}`);
   }
 
   handleNewFormation() {
@@ -50,6 +54,7 @@ export class FormationsComponent implements OnInit {
   handleDeleteFormation(formation:Formation) {
     let conf = confirm("Are you sure ? ");
     if (conf==false) return;
+    // this.formations = this.formations.filter(p => p.id != formation.id);
 
     this.formationService.delete(formation).subscribe({
       next: value => {
@@ -63,14 +68,13 @@ export class FormationsComponent implements OnInit {
   }
 
   searchFormations(keyword:string) {
+    // console.warn(keyword);
     this.formationService.search(keyword).subscribe({
       next: data => {
         this.formations = data;
+        // console.warn(data);
       }
     })
   }
 
-  handleShowFormation(formation:Formation) {
-    this.router.navigateByUrl(`api/formations/${formation.id}`);
-  }
 }

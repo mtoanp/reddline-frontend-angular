@@ -29,11 +29,12 @@ import { NewSessionComponent } from './session/new-session/new-session.component
 import { EditSessionComponent } from './session/edit-session/edit-session.component';
 import { CoursComponent } from './cours/cours/cours.component';
 import { NewCandidatureComponent } from './candidature/new-candidature/new-candidature.component';
-import { QuiSommesNousComponent } from './qui-sommes-nous/qui-sommes-nous.component';
-import { ContactezNousComponent } from './contactez-nous/contactez-nous.component';
+import { QuiSommesNousComponent } from './public/qui-sommes-nous/qui-sommes-nous.component';
+import { ContactezNousComponent } from './public/contactez-nous/contactez-nous.component';
 import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
 import { NewSalleComponent } from './salle/new-salle/new-salle.component';
 import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
+import { ThemeTreeComponent } from './theme/theme-tree/theme-tree.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
     ContactezNousComponent,
     EditSalleComponent,
     NewSalleComponent,
-    ShowSalleComponent
+    ShowSalleComponent,
+    ThemeTreeComponent
   ],
   imports: [
     BrowserModule,
