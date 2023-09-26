@@ -4,6 +4,9 @@
             <div class="card-title d-flex justify-content-between">
                 <h3 class="mt-2">Catalogue</h3>
                 <div class="actions">
+                    <button *ngIf="authService.isAdmin()" class="btn btn-outline-success mt-2 mr-2"
+                        (click)="handleNewFormation()"
+                    >Add New</button>
                     <button class="btn btn-outline-success mt-2 mr-2"
                         routerLink="/api/catalogue"
                     >
@@ -19,6 +22,7 @@
         </div>
         <div class="card-body">
 
+            <!-- <app-formations></app-formations> -->
             <app-theme-tree></app-theme-tree>
 
         </div>
