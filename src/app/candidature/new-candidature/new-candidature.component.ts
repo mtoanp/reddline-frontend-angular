@@ -84,8 +84,8 @@ export class NewCandidatureComponent implements OnInit {
 
   showMessage(msg:any) {
     if(msg) {
-      this.appState.setMessage(msg);
-      console.log(msg);
+      this.appState.setFeedback(msg);
+      console.log(this.appState.msg);
       // this.router.navigate(['api/feedback']);
       // this.router.navigate(['api/feedback', {msg: msg}]);
     }

@@ -17,7 +17,7 @@ export class AppStateService {
     this.authState = {...this.authState, ...state};
   }
 
-  public setMessage(msg : any) :void {
+  public setFeedback(msg : any) :void {
     this.msg = msg;
   }
 }
