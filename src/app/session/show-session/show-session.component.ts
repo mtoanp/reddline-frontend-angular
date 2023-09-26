@@ -53,15 +53,23 @@ export class ShowSessionComponent implements OnInit {
     this.router.navigateByUrl(`api/newCandidature/${this.session.id}`);
   }
 
+  showUser(etudiant:Etudiant) {
+    this.router.navigateByUrl(`api/admin/etudiants/${etudiant.id}`);
+  }
   // saveCandidature() {}
 
-  deleteCandidature(candidature:Candidature) {
+  deleteCandidature(etudiant:Etudiant) {
+    // let candidature:Candidature = new Candidature(this.session.id, etudiant.id, false);
+    let candidature:Candidature = new Candidature();
+    candidature.idSession = this.session.id;
+    candidature.idEtudiant = etudiant.id;
     candidature.valide = false;
-    console.warn(candidature);
+    // console.warn(candidature);
     this.candidatureService.delete(candidature).subscribe({
       next: data => {
         // alert(JSON.stringify(data));
-        console.warn("removeCandidature");
+        // console.warn("removeCandidature");
+        this.session.candidats = this.session.candidats.filter(p => p.id != etudiant.id);
       },
       error: err => {
         console.log(err);
@@ -70,13 +78,13 @@ export class ShowSessionComponent implements OnInit {
   }
 
   
-  updateCandidature(etudiant:Etudiant, status:boolean) {
-    if(status && (this.session.etudiants.length >= this.session.capacite)) return;
+  updateCandidature(etudiant:Etudiant, valide:boolean) {
+    if(valide && (this.session.etudiants.length >= this.session.capacite)) return;
 
-    this.candidatureService.update(this.buildCandidature(etudiant.id, status)).subscribe({
+    this.candidatureService.update(this.buildCandidature(etudiant.id, valide)).subscribe({
       next: data => {
         // alert(JSON.stringify(data));
-        if(status) {
+        if(valide) {
           this.session.candidats = this.session.candidats.filter(p => p.id != etudiant.id);
           this.session.etudiants.push(etudiant);
         } else {
@@ -91,11 +99,18 @@ export class ShowSessionComponent implements OnInit {
   }
 
   
-  buildCandidature(idEtudiant:number, status:boolean):Candidature {
+  buildCandidature(idEtudiant:number, valide:boolean):Candidature {
     let candidature:Candidature = new Candidature();  // Candidature as class
     candidature.idSession = this.session.id;
     candidature.idEtudiant = idEtudiant;
-    candidature.valide = status;
+    candidature.valide = valide;
+
+    // let candidature:Candidature = new Candidature(
+    //   this.session.id,
+    //   idEtudiant,
+    //   valide
+    // );  // Candidature as class
+
     // alert(JSON.stringify(candidature));
     return candidature;
   }

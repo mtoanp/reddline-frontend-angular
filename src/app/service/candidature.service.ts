@@ -34,6 +34,7 @@ export class CandidatureService {
       // body: candidature
       body: JSON.stringify(candidature)
     };
+    // alert(JSON.stringify(candidature));
     return this.http.delete<any>(`${this.host}/${this.base}`, options);
     // return this.http.delete<any>(`${this.host}/${this.base}`, {body: candidature});
     // return this.http.delete<any>(`${this.host}/${this.base}/delete?idSession=${candidature.idSession}&idEtudiant=${candidature.idEtudiant}`);

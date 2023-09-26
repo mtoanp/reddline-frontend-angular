@@ -20,15 +20,16 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <!-- <th>id</th> <th>nom</th> <th>prenom</th> <th>actions</th> -->
+                                        <th>Id</th> <th>Nom</th> <th>Prenom</th> <th>Email</th> <th>Actions</th>
                                     </tr>
                                 </thead>
+
                                 <tbody *ngFor="let c of session.candidats">
                                 <tr>
-                                    <td>{{c.id}}</td> 
-                                    <td>{{c.nom}}</td> 
-                                    <td>{{c.prenom}}</td>      
-
+                                    <td (click)="showUser(c)">{{c.id}}</td> 
+                                    <td (click)="showUser(c)">{{c.nom}}</td> 
+                                    <td (click)="showUser(c)">{{c.prenom}}</td>      
+                                    <td (click)="showUser(c)">{{c.email}}</td> 
                                     <td>
                                         <button
                                             (click)="updateCandidature(c, true)"
@@ -61,14 +62,15 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <!-- <th>id</th> <th>nom</th> <th>prenom</th> <th>actions</th> -->
+                                        <th>Id</th> <th>Nom</th> <th>Prenom</th> <th>Email</th> <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody *ngFor="let c of session.etudiants">
                                 <tr>
-                                    <td>{{c.id}}</td> 
-                                    <td>{{c.nom}}</td> 
-                                    <td>{{c.prenom}}</td>   
+                                    <td (click)="showUser(c)">{{c.id}}</td> 
+                                    <td (click)="showUser(c)">{{c.nom}}</td> 
+                                    <td (click)="showUser(c)">{{c.prenom}}</td>   
+                                    <td (click)="showUser(c)">{{c.email}}</td>
 
                                     <td>
                                         <button

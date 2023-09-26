@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Candidature } from 'src/app/model/candidature.model';
 import { Formation } from 'src/app/model/formation.model';
 import { Session } from 'src/app/model/session.model';
@@ -19,7 +19,8 @@ export class NewCandidatureComponent implements OnInit {
                 private sessionService:SessionService,
                 private candidatureService:CandidatureService,
                 private etudiantService:EtudiantService,
-                private activateRoute:ActivatedRoute
+                private activateRoute:ActivatedRoute,
+                private router:Router
   ) {}
 
   formGroup!:FormGroup;
@@ -63,6 +64,7 @@ export class NewCandidatureComponent implements OnInit {
         this.candidatureService.save(candidature).subscribe({
           next: data => {
             // alert(JSON.stringify(data));
+            this.router.navigateByUrl(`api/sessions/${this.session.id}`);
           },
           error: err => {
             console.log(err);
