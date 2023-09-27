@@ -1,6 +1,6 @@
 <!-- Navbar Start -->
 <div class="container-fluid" style="background-color: #3e4551">
-  <nav class="navbar navbar-dark navbar-expand- py-0">
+  <nav class="navbar navbar-dark p-0">
     <a href="api/home" class="navbar-brand">
       <h1 class="text-white fw-bold d-block">
         IT<span class="text-secondary">Training</span>
@@ -13,8 +13,8 @@
         routerLink="{{ action.route }}"
         [class]="
           action == currentAction
-            ? 'nav-item nav-link active text-secondary'
-            : 'nav-item nav-link active text-secondary'
+            ? 'nav-item nav-link active text-primary'
+            : 'nav-item nav-link text-white'
         "
       >
         {{ action.title }}
@@ -40,12 +40,16 @@
     </ul>
     <div class="d-none d-xl-flex">
       
-
+      <!-- authService.isAdmin() -->
       <!-- <ul *ngIf="authService.isAuthenticated()" class="nav nav-pills"> -->
 
       <a *ngIf="authService.isAuthenticated()">
         <!-- {{authService.authenticatedUser!.username}} -->
-        {{ appState.authState.username }}
+        <!-- {{ appState.authState.username }} -->
+        <button class="admin btn btn-outline-info ms-1">
+          <i class="bi bi-person"> Admin</i>
+        </button>
+        
         <button class="btn btn-secondary" (click)="logout()">Logout</button>
       </a>
       <a *ngIf="!authService.isAuthenticated()">

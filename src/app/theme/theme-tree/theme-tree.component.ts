@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Formation } from 'src/app/model/formation.model';
 import { Theme } from 'src/app/model/theme.model';
+import { AuthenticationService } from 'src/app/service/authentication.service';
 import { ThemeService } from 'src/app/service/theme.service';
 
 @Component({
@@ -12,7 +13,9 @@ import { ThemeService } from 'src/app/service/theme.service';
 export class ThemeTreeComponent implements OnInit {
   catalogue!:Theme;
   
-  constructor(private themeService:ThemeService, private router:Router) {}
+  constructor(private themeService:ThemeService, 
+    private router:Router,
+    public authService:AuthenticationService,) {}
 
   ngOnInit(): void {
     this.getCatalogue();
@@ -33,5 +36,9 @@ export class ThemeTreeComponent implements OnInit {
 
   handleShowFormation(formation:Formation) {
     this.router.navigateByUrl(`api/formations/${formation.id}`);
+  }
+
+  handleNewFormation() {
+    this.router.navigateByUrl("api/admin/newFormation");
   }
 }

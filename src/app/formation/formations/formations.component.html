@@ -8,12 +8,12 @@
                         (click)="handleNewFormation()"
                     >+ Nouveau Formation</button>
                     <button class="btn btn-outline-success mt-2 mr-2"
-                        routerLink="/api/catalogue"
+                        routerLink="/api/themeTree"
                     >
                         Arbre des Thèmes
                     </button>
                     <button class="btn btn-outline-info mt-2 ml-1"
-                        routerLink="/api/formations"
+                        routerLink="/api/catalogue"
                     >
                         List des Formations
                     </button>
@@ -46,7 +46,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody class="">
                     <tr *ngFor="let formation of formations">
                         <!-- <td (click)="handleShowFormation(formation)">
                             <a>{{formation.id}}</a>

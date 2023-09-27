@@ -26,13 +26,16 @@ import { ShowSalleComponent } from './salle/show-salle/show-salle.component';
 import { NewSalleComponent } from './salle/new-salle/new-salle.component';
 import { EditSalleComponent } from './salle/edit-salle/edit-salle.component';
 import { FeedbackComponent } from './layout/feedback/feedback.component';
+import { ThemeTreeComponent } from './theme/theme-tree/theme-tree.component';
 
 const routes: Routes = [
   {path: "api", children: [
+    {path: "", component: HomeComponent},
     {path: "home", component: HomeComponent},
     {path: "login", component: LoginComponent },
-    {path: "catalogue", component: CatalogueComponent},
-    {path: "themeTree", component: ThemesComponent},
+    {path: "catalogue", component: FormationsComponent},
+    // {path: "catalogue", component: CatalogueComponent},
+    {path: "themeTree", component: ThemeTreeComponent},
     {path: "formations", component: FormationsComponent},
     {path: "formations/:id", component: ShowFormationComponent},
     {path: "sessions/:id", component: ShowSessionComponent},

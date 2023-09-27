@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
   adminActions:Array<any> = [
     {title: "Themes", route: "/api/admin/themes", icon: "search"},
     {title: "Etudiants", route: "/api/admin/etudiants", icon: "people"},
+    {title: "Professeurs", route: "/api/admin/salles", icon: "people"},
     {title: "Salles", route: "/api/admin/salles", icon: "people"}
   ]
   
